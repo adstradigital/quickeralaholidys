@@ -1,0 +1,517 @@
+/* components/TripOffers.css */
+.trip-offers {
+  position: relative;
+  padding: 100px 20px;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.trip-offers::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: cosmicShift 20s ease-in-out infinite;
+}
+
+.trip-offers__grid-bg {
+  position: absolute;
+  inset: 0;
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+.trip-offers__floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.trip-offers__floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.15) 0%, transparent 70%);
+  animation: elementOrbit 30s linear infinite;
+}
+
+.trip-offers__floating-element:nth-child(2) {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  animation-duration: 40s;
+  animation-delay: -10s;
+}
+
+.trip-offers__floating-element:nth-child(3) {
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+  animation-duration: 50s;
+  animation-delay: -20s;
+}
+
+.trip-offers__container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.trip-offers__header {
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease-out 0.3s forwards;
+}
+
+.trip-offers__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-offers__badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+  transition: left 0.8s ease;
+}
+
+.trip-offers__badge:hover::before {
+  left: 100%;
+}
+
+.trip-offers__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: dotGlow 2s ease-in-out infinite;
+}
+
+.trip-offers__badge-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8be396;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.trip-offers__title {
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #ffffff, #a5b4fc, #54a3d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.trip-offers__subtitle {
+  font-size: 18px;
+  color: #cbd5e1;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Cards Container */
+.trip-offers__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Trip Card */
+.trip-offers__card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.trip-offers__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.trip-offers__card:hover::before {
+  left: 100%;
+}
+
+.trip-offers__card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74, 222, 128, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 8px 25px rgba(74, 222, 128, 0.2);
+}
+
+.trip-offers__card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(139, 92, 246, 0.05));
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.trip-offers__card--featured:hover {
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 12px 30px rgba(74, 222, 128, 0.3);
+}
+
+.trip-offers__card-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #4ade80, #54a3d4);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+.trip-offers__card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.trip-offers__card-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 222, 128, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  font-size: 20px;
+}
+
+.trip-offers__card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.trip-offers__card-location {
+  font-size: 14px;
+  color:  #54a3d4;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.trip-offers__card-description {
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.trip-offers__card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.trip-offers__feature {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.trip-offers__feature-icon {
+  width: 12px;
+  height: 12px;
+  color: #4ade80;
+}
+
+.trip-offers__card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trip-offers__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.trip-offers__price-old {
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.trip-offers__price-new {
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(135deg, #4ade80, #54a3d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.trip-offers__card-cta {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4ade80, #54a3d4);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
+}
+
+.trip-offers__card-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.6);
+}
+
+/* Featured Card Specific */
+.trip-offers__featured-content {
+  padding-right: 20px;
+}
+
+.trip-offers__featured-image {
+  position: relative;
+  height: 300px;
+  background: linear-gradient(135deg, #4ade80, #8b5cf6);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-offers__featured-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(74, 222, 128, 0.3), rgba(139, 92, 246, 0.5));
+}
+
+.trip-offers__featured-visual {
+  font-size: 80px;
+  color: white;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+/* Stats Section */
+.trip-offers__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.trip-offers__stat {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.trip-offers__stat:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(74, 222, 128, 0.3);
+  transform: translateY(-5px);
+}
+
+.trip-offers__stat-number {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4ade80, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.trip-offers__stat-label {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes cosmicShift {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes elementOrbit {
+  0% {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dotGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px #4ade80;
+  }
+  50% {
+    box-shadow: 0 0 15px #4ade80;
+  }
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .trip-offers__cards {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  
+  .trip-offers__card--featured {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .trip-offers__featured-content {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .trip-offers {
+    padding: 80px 16px;
+  }
+  
+  .trip-offers__title {
+    font-size: 48px;
+  }
+  
+  .trip-offers__cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .trip-offers__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .trip-offers__title {
+    font-size: 36px;
+  }
+  
+  .trip-offers__card {
+    padding: 30px 20px;
+  }
+  
+  .trip-offers__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .trip-offers__floating-element,
+  .trip-offers__grid-bg,
+  .trip-offers__card-badge,
+  .trip-offers__badge-dot,
+  .trip-offers__card,
+  .trip-offers__stat {
+    animation: none;
+    transition: none;
+  }
+  
+  .trip-offers__card:hover,
+  .trip-offers__stat:hover,
+  .trip-offers__card-cta:hover {
+    transform: none;
+  }
+}
