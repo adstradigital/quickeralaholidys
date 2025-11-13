@@ -1,6 +1,6 @@
 .plan-your-trip {
   max-width: 1200px;
-  margin: auto auto;
+  margin: 40px auto;
   padding: 2rem;
   font-family: 'Inter', 'Segoe UI', sans-serif;
   min-height: 100vh;
@@ -8,11 +8,22 @@
 
 .plan-your-trip h2 {
   text-align: center;
-  color: white;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  text-align: center;
+  color: #718096;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
 }
 
 .trip-form {
@@ -22,6 +33,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   backdrop-filter: blur(10px);
+  border: 1px solid #e2e8f0;
 }
 
 .form-row {
@@ -34,6 +46,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 .form-group label {
@@ -56,13 +69,21 @@
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #2c5f2d;
   background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+}
+
+.hint {
+  display: block;
+  margin-top: 0.5rem;
+  color: #718096;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
   color: white;
   padding: 1.25rem 2.5rem;
   border: none;
@@ -73,11 +94,13 @@
   transition: all 0.3s ease;
   width: 100%;
   margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(44, 95, 45, 0.2);
 }
 
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 25px rgba(44, 95, 45, 0.3);
+  background: linear-gradient(135deg, #234d24 0%, #7da34f 100%);
 }
 
 /* Packages Section */
@@ -87,6 +110,7 @@
   background: white;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 .packages-section h3 {
@@ -95,17 +119,21 @@
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
 .package-card {
   background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid #e2e8f0;
+  border: 2px solid #e2e8f0;
   border-radius: 16px;
   padding: 2rem;
   cursor: pointer;
@@ -121,19 +149,19 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
 }
 
 .package-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  border-color: #667eea;
+  box-shadow: 0 15px 40px rgba(44, 95, 45, 0.15);
+  border-color: #2c5f2d;
 }
 
 .package-card.selected {
-  border-color: #667eea;
-  background: linear-gradient(145deg, #f0f4ff 0%, #f8fafc 100%);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+  border-color: #2c5f2d;
+  background: linear-gradient(145deg, #f0f7f0 0%, #f8fafc 100%);
+  box-shadow: 0 10px 30px rgba(44, 95, 45, 0.2);
 }
 
 .package-header {
@@ -152,50 +180,50 @@
 }
 
 .package-duration {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
   margin-left: 1rem;
+  white-space: nowrap;
 }
 
 .package-description {
   color: #718096;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .package-price {
   margin-bottom: 1.5rem;
   padding: 1.5rem;
-  background: white;
+  background: linear-gradient(145deg, #f0f7f0 0%, #ffffff 100%);
   border-radius: 12px;
   border: 1px solid #e2e8f0;
 }
 
-.usd-price {
+.price-main {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
-}
-
-.inr-price {
-  font-size: 1rem;
-  color: #718096;
+  color: #2c5f2d;
   margin-bottom: 0.5rem;
 }
 
 .total-price {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #667eea;
+  color: #718096;
   margin-top: 0.75rem;
   padding-top: 0.75rem;
   border-top: 1px solid #e2e8f0;
+}
+
+.total-price strong {
+  color: #2c5f2d;
+  font-size: 1.1rem;
 }
 
 .package-includes {
@@ -209,21 +237,14 @@
   color: #4a5568;
   font-size: 0.9rem;
   display: flex;
-  align-items: center;
-}
-
-.package-includes li::before {
-  content: '✓';
-  color: #48bb78;
-  font-weight: bold;
-  margin-right: 0.75rem;
-  font-size: 1.1rem;
+  align-items: flex-start;
+  line-height: 1.5;
 }
 
 .select-package-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
   color: white;
   border: none;
   border-radius: 12px;
@@ -235,11 +256,12 @@
 
 .select-package-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(72, 187, 120, 0.3);
+  box-shadow: 0 8px 20px rgba(44, 95, 45, 0.3);
+  background: linear-gradient(135deg, #234d24 0%, #7da34f 100%);
 }
 
 .package-card.selected .select-package-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a3a1b 0%, #5d823e 100%);
 }
 
 /* Trip Calculation Styles */
@@ -249,6 +271,7 @@
   padding: 2.5rem;
   margin-top: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 .trip-calculation h3 {
@@ -257,6 +280,10 @@
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .package-calculation {
@@ -264,16 +291,15 @@
 }
 
 .package-badge {
-  position: absolute;
-  top: -15px;
-  right: 20px;
-  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  display: inline-block;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
   font-size: 0.85rem;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+  box-shadow: 0 4px 15px rgba(44, 95, 45, 0.3);
 }
 
 .calculation-summary {
@@ -288,12 +314,13 @@
   padding: 1.5rem;
   border-radius: 16px;
   text-align: center;
-  border: 1px solid #e2e8f0;
-  transition: transform 0.3s ease;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
 }
 
 .summary-card:hover {
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .summary-card h4 {
@@ -313,8 +340,9 @@
 }
 
 .total-cost {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
   color: white;
+  border-color: #2c5f2d;
 }
 
 .total-cost h4,
@@ -322,10 +350,8 @@
   color: white;
 }
 
-.inr-conversion {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 0.5rem;
+.total-amount {
+  font-size: 1.8rem !important;
 }
 
 .cost-breakdown,
@@ -366,7 +392,7 @@
 }
 
 .breakdown-item.total {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
   color: white;
   font-weight: 700;
   font-size: 1.1rem;
@@ -377,7 +403,7 @@
 }
 
 .package-details {
-  background: #f8fafc;
+  background: linear-gradient(145deg, #f0f7f0 0%, #f8fafc 100%);
   padding: 2rem;
   border-radius: 16px;
   margin-top: 1.5rem;
@@ -404,14 +430,6 @@
   align-items: center;
 }
 
-.package-details li::before {
-  content: '✓';
-  color: #48bb78;
-  font-weight: bold;
-  margin-right: 1rem;
-  font-size: 1.1rem;
-}
-
 .package-details li:last-child {
   border-bottom: none;
 }
@@ -427,11 +445,13 @@
 }
 
 .budget-status.within-budget {
-  border-left-color: #48bb78;
+  border-left-color: #2c5f2d;
+  background: linear-gradient(145deg, #f0f7f0 0%, #ffffff 100%);
 }
 
 .budget-status.over-budget {
-  border-left-color: #f56565;
+  border-left-color: #dc2626;
+  background: linear-gradient(145deg, #fef2f2 0%, #ffffff 100%);
 }
 
 .budget-status h4 {
@@ -441,37 +461,43 @@
   font-weight: 600;
 }
 
+.budget-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .budget-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid #f1f5f9;
+  font-size: 1rem;
 }
 
-.budget-item:last-child {
+.budget-item:last-of-type {
   border-bottom: none;
 }
 
 .budget-item .positive {
-  color: #48bb78;
+  color: #2c5f2d;
   font-weight: 700;
 }
 
 .budget-item .negative {
-  color: #f56565;
+  color: #dc2626;
   font-weight: 700;
 }
 
 .budget-progress {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 2px solid #e2e8f0;
 }
 
 .progress-bar {
   width: 100%;
-  height: 10px;
+  height: 12px;
   background: #e2e8f0;
   border-radius: 10px;
   overflow: hidden;
@@ -480,7 +506,6 @@
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   transition: width 0.5s ease;
   border-radius: 10px;
 }
@@ -491,17 +516,18 @@
   border-radius: 12px;
   text-align: center;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 .within-budget .budget-message {
-  background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
-  color: #22543d;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
 }
 
 .over-budget .budget-message {
-  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
-  color: #742a2a;
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  color: #721c24;
 }
 
 .calculation-notes {
@@ -510,14 +536,27 @@
   font-size: 0.9rem;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #e2e8f0;
-  line-height: 1.6;
+  border-top: 2px solid #e2e8f0;
+  line-height: 1.7;
+}
+
+.calculation-notes strong {
+  color: #2d3748;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .plan-your-trip {
     padding: 1rem;
+    margin: 20px auto;
+  }
+  
+  .plan-your-trip h2 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
   }
   
   .trip-form {
@@ -526,11 +565,12 @@
   
   .form-row {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0;
   }
   
   .packages-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .package-header {
@@ -549,5 +589,26 @@
   
   .trip-calculation {
     padding: 1.5rem;
+  }
+  
+  .package-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .plan-your-trip h2 {
+    font-size: 1.75rem;
+  }
+  
+  .submit-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .packages-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -23,7 +23,7 @@ const CompactContact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
-        // Handle form submission
+        // Handle form submission (API call, etc.)
     };
 
     const popularDestinations = [
@@ -50,8 +50,16 @@ const CompactContact = () => {
                         <div className="brand-section-horizontal">
                             <div className="logo-horizontal">🌴</div>
                             <div className="brand-info-horizontal">
-                                <h3>Quickerala Holidays</h3>
-                                <p>Kerala's Trusted Travel Partner</p>
+                                <h3>Quick Kerala Holidays</h3>
+                                <p>Kerala’s Trusted Travel Partner</p>
+                                <p className="address-text">
+                                    13/973, THOPPIL Building, Vannapuram PO,<br />
+                                    Thodupuzha, Idukki, Kerala - 685607
+                                </p>
+                                <p className="email-text">
+                                    contact@quickeralaholidays.com<br />
+                                    info@quickeralaholidays.com
+                                </p>
                             </div>
                         </div>
                         <motion.div
@@ -228,12 +236,15 @@ const CompactContact = () => {
                             <div className="contact-info-horizontal">
                                 <span className="contact-label-horizontal">Call Now</span>
                                 <span className="contact-value-horizontal">
-                                    +91 98765 43210
+                                    +91 9447823767
                                 </span>
                             </div>
                         </motion.div>
 
-                        <motion.div
+                        <motion.a
+                            href="https://wa.me/919778436950"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="contact-option-horizontal"
                             whileHover={{ scale: 1.05, backgroundColor: "#dcfce7" }}
                             whileTap={{ scale: 0.95 }}
@@ -241,9 +252,9 @@ const CompactContact = () => {
                             <span className="icon-horizontal">💬</span>
                             <div className="contact-info-horizontal">
                                 <span className="contact-label-horizontal">WhatsApp</span>
-                                <span className="contact-value-horizontal">Quick Response</span>
+                                <span className="contact-value-horizontal">+91 97784 36950</span>
                             </div>
-                        </motion.div>
+                        </motion.a>
                     </div>
 
                     {/* Additional Info */}

@@ -21,6 +21,9 @@ import UserManagement from "../UserManagement/UserManagement";
 import ServicesManagement from "../ServicesManagement/ServicesManagement";
 import EnquiryManagement from "../list_enquiries/list_enquiries";
 import PageContentEditor from "../PageContentEdit/PageContentEdit";
+import BookingsManagement from "../BookingListing/BookingListing";
+
+
 
 export default function Dashboard() {
   const [userRole, setUserRole] = useState(null);
@@ -65,8 +68,10 @@ export default function Dashboard() {
     { key: "overview", label: "Dashboard Overview", icon: <FaChartLine /> },
     { key: "users", label: "User Management", icon: <FaUserFriends /> },
     { key: "services", label: "Services & Packages", icon: <FaServicestack /> },
+    { key: "bookings", label: "Bookings Management", icon: <FaUmbrellaBeach /> },
     { key: "enquiries", label: "Customer Enquiries", icon: <FaEnvelope /> },
     { key: "pages", label: "Content Editor", icon: <FaImages /> },
+    
     // { key: "vehicles", label: "Transport", icon: <FaCar /> },
     // { key: "blogs", label: "Travel Blogs", icon: <FaBlog /> },
   ];
@@ -301,6 +306,7 @@ export default function Dashboard() {
           {activePage === "users" && <UserManagement activePage={activePage} />}
           {activePage === "services" && <ServicesManagement activePage={activePage} />}
           {activePage === "enquiries" && <EnquiryManagement activePage={activePage} />}
+          {activePage === "bookings" && <BookingsManagement activePage={activePage} />}
           {activePage === "pages" && <PageContentEditor activePage={activePage} />}
 
           {activePage !== "users" && activePage !== "overview" && 

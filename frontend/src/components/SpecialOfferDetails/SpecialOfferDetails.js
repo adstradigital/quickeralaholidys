@@ -150,36 +150,42 @@ export default function SpecialOffersClient() {
   const limitedTimeOffers = [
     {
       id: 1,
-      title: "Kerala Holidays",
+      title: "Special Kerala",
       discount: "15% OFF",
-      description: "Perfect short escape to experience Alleppey backwaters over the weekend",
+      description: "Perfect escape covering Munnar tea gardens, Thekkady wildlife, and Alleppey backwaters with deluxe houseboat stay",
       validUntil: "2024-08-15",
       tag: "Weekend Special",
       color: "#F59E0B",
       lightColor: "#FFFBEB",
-      relatedTripId: 1
+      relatedTripId: 1,
+      packageDetails: "4 Nights 5 Days | Munnar 2N, Thekkady 1N, Alleppey 1N",
+      startingPrice: "₹36,200"
     },
     {
       id: 2,
-      title: "Monsoon Ayurveda",
+      title: "Honeymoon Special",
       discount: "20% OFF",
-      description: "Experience the healing power of Ayurveda during Kerala's monsoon season",
+      description: "Experience the healing power of Ayurveda during Kerala's monsoon season with Munnar hills and backwater cruise",
       validUntil: "2024-09-30",
       tag: "Seasonal",
       color: "#06B6D4",
       lightColor: "#ECFEFF",
-      relatedTripId: 2
+      relatedTripId: 2,
+      packageDetails: "4 Nights 5 Days | Munnar 2N, Thekkady 1N, Alleppey 1N",
+      startingPrice: "₹36,200"
     },
     {
       id: 3,
-      title: "Group Kerala Tour",
+      title: "Grand Kerala Group Tour",
       discount: "25% OFF",
-      description: "Special rates for groups of 6 or more exploring Kerala together",
+      description: "Complete Kerala experience for groups of 6+: Cochin, Munnar, Thekkady, Alleppey, Kovalam & Kanyakumari day trip",
       validUntil: "2024-12-31",
       tag: "Group Deal",
       color: "#8B5CF6",
       lightColor: "#F5F3FF",
-      relatedTripId: 4
+      relatedTripId: 4,
+      packageDetails: "7 Nights 8 Days | Cochin 1N, Munnar 2N, Thekkady 1N, Alleppey 1N, Kovalam 2N",
+      startingPrice: "₹58,500"
     }
   ];
 
@@ -224,11 +230,18 @@ export default function SpecialOffersClient() {
                 
                 <div className="limited-offer-content">
                   <h4>{offer.title}</h4>
+                  <div className="package-duration" style={{ color: offer.color, fontSize: '0.85rem', fontWeight: '600', marginTop: '0.5rem' }}>
+                    {offer.packageDetails}
+                  </div>
                   <div className="limited-discount" style={{ color: offer.color }}>
                     {offer.discount}
                   </div>
                   <p>{offer.description}</p>
                   
+                  <div className="price-info" style={{ margin: '1rem 0', fontSize: '0.9rem', color: '#666' }}>
+                    Starting from <span style={{ color: offer.color, fontWeight: '700', fontSize: '1.1rem' }}>{offer.startingPrice}</span> per couple
+                  </div>
+
                   <div className="limited-offer-footer">
                     <div className="time-remaining">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
