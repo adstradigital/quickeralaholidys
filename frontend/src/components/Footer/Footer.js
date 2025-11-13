@@ -1,8 +1,16 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa';
-import './footer.css';
+import { useState, useEffect } from "react";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaFacebookF,
+} from "react-icons/fa";
+import "./footer.css";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(2024);
@@ -16,41 +24,41 @@ const Footer = () => {
     { name: "Destinations", path: "/destinations" },
     { name: "Packages", path: "/packages" },
     { name: "About Us", path: "/about" },
-    { name: "Contact", path: "/contact" }
+    { name: "Contact", path: "/contact" },
   ];
 
   const services = [
     "Luxury Houseboats",
-    "Cultural Tours", 
+    "Cultural Tours",
     "Wildlife Safaris",
     "Ayurveda Retreats",
     "Adventure Sports",
-    "Honeymoon Packages"
+    "Honeymoon Packages",
   ];
 
   const contactInfo = [
     {
       icon: FaPhone,
-      text: "+91 98765 43210",
-      subtext: "Mon-Sun: 6AM - 10PM"
+      text: "+91 9447823767",
+      subtext: "Mon-Sun: 6AM - 10PM",
     },
     {
       icon: FaEnvelope,
-      text: "info@quickkerala.com",
-      subtext: "Quick response guaranteed"
+      text: "info@quickeralaholidays.com",
+      subtext: "Quick response guaranteed",
     },
     {
       icon: FaMapMarkerAlt,
-      text: "Marine Drive, Kochi",
-      subtext: "Kerala, India - 682001"
-    }
+      text: "Quick Kerala Holidays, Thodupuzha",
+      subtext: "Kerala, India - 685607",
+    },
   ];
 
   const socialLinks = [
     { icon: FaLinkedin, name: "LinkedIn", url: "#" },
     { icon: FaTwitter, name: "Twitter", url: "#" },
     { icon: FaInstagram, name: "Instagram", url: "#" },
-    { icon: FaFacebookF, name: "Facebook", url: "#" }
+    { icon: FaFacebookF, name: "Facebook", url: "#" },
   ];
 
   return (
@@ -61,22 +69,22 @@ const Footer = () => {
           {/* Company Info */}
           <div className="company-info">
             <div className="logo-section">
-              <div className="logo">
-                <span className="logo-text">QK</span>
-              </div>
-              <div className="company-details">
-                <h3>Quick Kerala Holidays</h3>
-                <p className="company-tagline">
-                  Premium travel experiences in God's Own Country
-                </p>
-              </div>
+              <img
+                src="/assets/quikerala_logo.png"
+                alt="Quick Kerala Holidays logo"
+                className="logo-img"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/assets/logo-fallback.png";
+                }}
+              />
             </div>
-            
-            <div className="contact-info">
+
+            <div className="contact-infos">
               {contactInfo.map((contact, index) => {
                 const IconComponent = contact.icon;
                 return (
-                  <div key={index} className="contact-item">
+                  <div key={index} className="contact-items">
                     <div className="contact-icon">
                       <IconComponent />
                     </div>
@@ -90,7 +98,7 @@ const Footer = () => {
             </div>
 
             <div className="social-section">
-              <p className="social-title">Connect With Us</p>
+              <p className="social-title">Follow Us</p>
               <div className="social-links">
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
@@ -132,44 +140,14 @@ const Footer = () => {
               ))}
             </div>
           </div>
-
-          {/* Newsletter */}
-          <div className="newsletter-section">
-            <h4 className="section-title">Stay Informed</h4>
-            <div className="newsletter-card">
-              <p className="newsletter-text">
-                Subscribe to receive travel insights and exclusive offers
-              </p>
-              <div className="newsletter-form">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="newsletter-input"
-                />
-                <button className="newsletter-button">
-                  Subscribe
-                </button>
-              </div>
-              <p className="newsletter-note">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
-            </div>
-          </div>
         </div>
-
-        {/* Divider */}
-        <div className="footer-divider"></div>
 
         {/* Bottom Footer */}
         <div className="footer-bottom">
           <div className="copyright-section">
             <p>&copy; {currentYear} Quick Kerala Holidays. All rights reserved.</p>
-            <div className="certifications">
-              <span className="cert-badge">Kerala Tourism Certified</span>
-              <span className="cert-badge">IATA Approved</span>
-            </div>
           </div>
-          
+
           <div className="legal-links">
             <a href="/privacy-policy">Privacy Policy</a>
             <a href="/terms-of-service">Terms of Service</a>

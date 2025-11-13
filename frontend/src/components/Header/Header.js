@@ -48,14 +48,20 @@ export default function Header() {
       <nav className="nav">
         <div className="navContent">
           {/* Logo */}
-          <Link href="/" className="logo">
-            <div className="logoIcon">
-              QK
-            </div>
-            <div className="logoText">
-              <span className="logoMain">Quick Kerala</span>
-            </div>
-          </Link>
+            <Link href="/" className="nav-logoo">
+              <img 
+                src="/assets/quikerala_logo.png" 
+                alt="Quick Kerala Holidays" 
+                className="logoo-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  const fallback = document.createElement('div');
+                  fallback.className = 'logo-fallback';
+                  fallback.textContent = 'QK Holidays';
+                  e.target.parentNode.appendChild(fallback);
+                }}
+              />
+            </Link>
 
           {/* Desktop Navigation */}
           <div className="desktopNav">

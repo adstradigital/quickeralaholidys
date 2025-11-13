@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "apps.tourism",
     "apps.users",
     "apps.pages",
+    'apps.package'
 ]
 
 # ----------------------------

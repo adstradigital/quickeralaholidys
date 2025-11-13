@@ -17,103 +17,155 @@ const PlanYourTrip = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
 
   const tripTypes = [
-    'vacation', 'business', 'adventure', 'romantic', 'family', 'solo'
+    'vacation', 'honeymoon', 'family', 'adventure', 'wellness', 'solo'
   ];
 
-  // Exchange rate (USD to INR)
-  const EXCHANGE_RATE = 83;
-
-  // Fixed travel packages with costs in USD
+  // Kerala Tour Packages with realistic pricing
   const travelPackages = {
-    bali: [
+    munnar: [
       {
-        name: "Bali Budget Package",
-        duration: "5D/4N",
-        price: 299,
-        includes: ["3-star hotel", "Breakfast", "Airport transfers", "Half-day city tour"],
-        description: "Perfect for budget travelers exploring Bali's culture"
+        name: "Munnar Hill Station Escape",
+        duration: "2D/3N",
+        price: 8500,
+        includes: ["3-star hotel", "Breakfast", "Tea plantation tour", "Eravikulam National Park", "Transport"],
+        description: "Explore the beautiful tea gardens and hill station"
       },
       {
-        name: "Bali Premium Package",
-        duration: "7D/6N",
-        price: 699,
-        includes: ["5-star resort", "All meals", "Private transfers", "Full island tour", "Spa treatment"],
-        description: "Luxury experience with premium amenities"
+        name: "Munnar Premium Package",
+        duration: "3D/4N",
+        price: 15000,
+        includes: ["4-star resort", "All meals", "Tea factory visit", "Mattupetty Dam", "Echo Point", "Private cab"],
+        description: "Luxury hill station experience with premium amenities"
       }
     ],
-    paris: [
+    alleppey: [
       {
-        name: "Paris Essential Package",
-        duration: "4D/3N",
-        price: 599,
-        includes: ["4-star hotel", "Breakfast", "Eiffel Tower tickets", "Seine River cruise"],
-        description: "Classic Parisian experience with key attractions"
+        name: "Alleppey Backwater Experience",
+        duration: "1D/2N",
+        price: 9500,
+        includes: ["Deluxe houseboat", "All meals", "Backwater cruise", "Village tour"],
+        description: "Classic houseboat stay in Kerala backwaters"
       },
       {
-        name: "Paris Romance Package",
-        duration: "6D/5N",
-        price: 999,
-        includes: ["Boutique hotel", "Fine dining", "Louvre Museum", "Versailles tour", "Romantic dinner cruise"],
-        description: "Perfect romantic getaway in the city of love"
+        name: "Alleppey Premium Houseboat",
+        duration: "1D/2N",
+        price: 18000,
+        includes: ["Premium houseboat", "AC rooms", "Chef-prepared meals", "Sunset cruise", "Fishing experience"],
+        description: "Luxury houseboat with premium facilities"
       }
     ],
-    dubai: [
+    kovalam: [
       {
-        name: "Dubai City Package",
-        duration: "5D/4N",
-        price: 799,
-        includes: ["4-star hotel", "Desert safari", "Burj Khalifa tickets", "Dubai Mall visit"],
-        description: "Modern Dubai experience with desert adventure"
+        name: "Kovalam Beach Retreat",
+        duration: "3D/4N",
+        price: 12000,
+        includes: ["Beach resort", "Breakfast", "Ayurvedic massage", "Beach activities", "Trivandrum sightseeing"],
+        description: "Relax at Kerala's famous beach destination"
       },
       {
-        name: "Dubai Luxury Package",
-        duration: "7D/6N",
-        price: 1499,
-        includes: ["5-star beach resort", "All meals", "Private yacht tour", "Gold souk shopping", "Luxury car transfers"],
-        description: "Ultimate luxury experience in Dubai"
+        name: "Kovalam Luxury Beach Package",
+        duration: "4D/5N",
+        price: 25000,
+        includes: ["5-star beach resort", "All meals", "Spa treatments", "Water sports", "Private beach access"],
+        description: "Ultimate luxury beach vacation"
       }
     ],
-    thailand: [
+    thekkady: [
       {
-        name: "Thailand Explorer",
-        duration: "6D/5N",
-        price: 399,
-        includes: ["4-star hotels", "Breakfast", "Temple tours", "Beach transfers"],
-        description: "Explore Thailand's beautiful temples and beaches"
+        name: "Thekkady Wildlife Safari",
+        duration: "2D/3N",
+        price: 10000,
+        includes: ["3-star hotel", "Breakfast & dinner", "Periyar boat safari", "Spice plantation tour", "Elephant ride"],
+        description: "Explore wildlife and spice plantations"
+      },
+      {
+        name: "Thekkady Adventure Package",
+        duration: "3D/4N",
+        price: 18500,
+        includes: ["Jungle resort", "All meals", "Jungle safari", "Bamboo rafting", "Tribal village visit", "Nature walks"],
+        description: "Complete adventure and wildlife experience"
       }
     ],
-    singapore: [
+    wayanad: [
       {
-        name: "Singapore Family Package",
-        duration: "5D/4N",
-        price: 899,
-        includes: ["Family suite", "Universal Studios tickets", "Zoo admission", "All transfers"],
-        description: "Perfect family vacation with theme parks"
+        name: "Wayanad Nature Package",
+        duration: "3D/4N",
+        price: 11000,
+        includes: ["Hill resort", "Breakfast", "Edakkal Caves", "Soochipara Falls", "Wildlife sanctuary visit"],
+        description: "Explore Wayanad's natural beauty"
+      },
+      {
+        name: "Wayanad Premium Stay",
+        duration: "4D/5N",
+        price: 22000,
+        includes: ["5-star resort", "All meals", "Plantation tours", "Trekking", "Zipline adventure", "Private guide"],
+        description: "Luxury nature retreat in Wayanad hills"
+      }
+    ],
+    kochi: [
+      {
+        name: "Kochi Heritage Tour",
+        duration: "2D/3N",
+        price: 7500,
+        includes: ["Heritage hotel", "Breakfast", "Fort Kochi tour", "Kathakali show", "Chinese fishing nets", "Jew Town"],
+        description: "Explore the heritage and culture of Kochi"
+      },
+      {
+        name: "Kochi Cultural Experience",
+        duration: "3D/4N",
+        price: 14000,
+        includes: ["Boutique hotel", "All meals", "Heritage walks", "Spice market tour", "Backwater cruise", "Art gallery visits"],
+        description: "Complete cultural immersion in Kochi"
+      }
+    ],
+    kumarakom: [
+      {
+        name: "Kumarakom Backwater Stay",
+        duration: "2D/3N",
+        price: 13000,
+        includes: ["Lake resort", "All meals", "Backwater cruise", "Bird sanctuary visit", "Village tour"],
+        description: "Peaceful backwater experience at Kumarakom"
+      },
+      {
+        name: "Kumarakom Luxury Retreat",
+        duration: "3D/4N",
+        price: 28000,
+        includes: ["5-star resort", "All meals", "Ayurvedic spa", "Houseboat cruise", "Sunset cruise", "Private pool villa"],
+        description: "Ultimate luxury backwater experience"
+      }
+    ],
+    varkala: [
+      {
+        name: "Varkala Cliff Beach Package",
+        duration: "3D/4N",
+        price: 9000,
+        includes: ["Cliff resort", "Breakfast", "Beach activities", "Janardhana Temple", "Ayurvedic massage"],
+        description: "Unique cliff beach experience"
       }
     ]
   };
 
-  // Price estimates per day per person (in USD)
+  // Kerala destination-specific daily rates (in INR per person per day)
   const destinationRates = {
-    default: { accommodation: 100, food: 50, activities: 75, transportation: 40 },
-    paris: { accommodation: 150, food: 80, activities: 100, transportation: 30 },
-    bali: { accommodation: 60, food: 25, activities: 50, transportation: 20 },
-    tokyo: { accommodation: 120, food: 70, activities: 90, transportation: 35 },
-    newyork: { accommodation: 200, food: 100, activities: 120, transportation: 45 },
-    london: { accommodation: 180, food: 90, activities: 110, transportation: 40 },
-    dubai: { accommodation: 220, food: 110, activities: 150, transportation: 50 },
-    bangkok: { accommodation: 50, food: 20, activities: 40, transportation: 15 },
-    thailand: { accommodation: 55, food: 22, activities: 45, transportation: 18 },
-    singapore: { accommodation: 130, food: 60, activities: 80, transportation: 25 }
+    default: { accommodation: 2500, food: 1000, activities: 1500, transportation: 800 },
+    munnar: { accommodation: 3000, food: 1200, activities: 1800, transportation: 1000 },
+    alleppey: { accommodation: 4500, food: 1500, activities: 2000, transportation: 800 },
+    kovalam: { accommodation: 3500, food: 1300, activities: 1700, transportation: 900 },
+    thekkady: { accommodation: 2800, food: 1100, activities: 2200, transportation: 1000 },
+    wayanad: { accommodation: 2700, food: 1000, activities: 1600, transportation: 1100 },
+    kochi: { accommodation: 2500, food: 1200, activities: 1400, transportation: 700 },
+    kumarakom: { accommodation: 4000, food: 1500, activities: 1800, transportation: 800 },
+    varkala: { accommodation: 2200, food: 1000, activities: 1500, transportation: 800 },
+    trivandrum: { accommodation: 2000, food: 900, activities: 1200, transportation: 600 }
   };
 
   const tripTypeMultipliers = {
     vacation: 1.0,
-    business: 1.4,
-    adventure: 1.2,
-    romantic: 1.3,
+    honeymoon: 1.3,
     family: 0.9,
-    solo: 1.1
+    adventure: 1.2,
+    wellness: 1.4,
+    solo: 1.0
   };
 
   const handleChange = (e) => {
@@ -156,7 +208,6 @@ const PlanYourTrip = () => {
 
     calculations.totalCost = Object.values(calculations.breakdown).reduce((sum, cost) => sum + cost, 0);
     
-    // Calculate daily breakdown
     calculations.dailyBreakdown = {
       accommodation: Math.round(rates.accommodation * tripData.travelers * multiplier),
       food: Math.round(rates.food * tripData.travelers * multiplier),
@@ -166,7 +217,6 @@ const PlanYourTrip = () => {
 
     calculations.dailyTotal = Object.values(calculations.dailyBreakdown).reduce((sum, cost) => sum + cost, 0);
 
-    // Calculate budget status if budget is provided
     if (tripData.budget) {
       const budget = parseFloat(tripData.budget);
       calculations.budgetStatus = {
@@ -183,20 +233,20 @@ const PlanYourTrip = () => {
 
   const getDestinationKey = (destination) => {
     const dest = destination.toLowerCase();
-    if (dest.includes('bali')) return 'bali';
-    if (dest.includes('paris')) return 'paris';
-    if (dest.includes('dubai')) return 'dubai';
-    if (dest.includes('thailand') || dest.includes('bangkok')) return 'thailand';
-    if (dest.includes('singapore')) return 'singapore';
-    if (dest.includes('london')) return 'london';
-    if (dest.includes('tokyo')) return 'tokyo';
-    if (dest.includes('new york')) return 'newyork';
-    return dest.replace(/\s+/g, '');
+    if (dest.includes('munnar')) return 'munnar';
+    if (dest.includes('alleppey') || dest.includes('alappuzha')) return 'alleppey';
+    if (dest.includes('kovalam')) return 'kovalam';
+    if (dest.includes('thekkady') || dest.includes('periyar')) return 'thekkady';
+    if (dest.includes('wayanad')) return 'wayanad';
+    if (dest.includes('kochi') || dest.includes('cochin')) return 'kochi';
+    if (dest.includes('kumarakom')) return 'kumarakom';
+    if (dest.includes('varkala')) return 'varkala';
+    if (dest.includes('trivandrum') || dest.includes('thiruvananthapuram')) return 'trivandrum';
+    return 'default';
   };
 
   const handlePackageSelect = (pkg) => {
     setSelectedPackage(pkg);
-    const destinationKey = getDestinationKey(tripData.destination);
     const packageCost = pkg.price * tripData.travelers;
     
     const calculations = {
@@ -215,19 +265,11 @@ const PlanYourTrip = () => {
     calculateTripDetails();
   };
 
-  const formatCurrency = (amount, currency = 'INR') => {
-    if (currency === 'INR') {
-      const inrAmount = amount * EXCHANGE_RATE;
-      return new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0
-      }).format(inrAmount);
-    }
-    
-    return new Intl.NumberFormat('en-US', {
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD'
+      currency: 'INR',
+      maximumFractionDigits: 0
     }).format(amount);
   };
 
@@ -240,19 +282,22 @@ const PlanYourTrip = () => {
 
   return (
     <div className="plan-your-trip">
-      <h2>Plan Your Perfect Trip</h2>
+      <h2>Plan Your Perfect Kerala Trip</h2>
+      <p className="subtitle">Explore God's Own Country - Kerala Tourism</p>
+      
       <form onSubmit={handleSubmit} className="trip-form">
         <div className="form-group">
-          <label htmlFor="destination">Destination</label>
+          <label htmlFor="destination">Kerala Destination</label>
           <input
             type="text"
             id="destination"
             name="destination"
             value={tripData.destination}
             onChange={handleChange}
-            placeholder="Enter destination (e.g., Bali, Paris, Dubai...)"
+            placeholder="e.g., Munnar, Alleppey, Kovalam, Thekkady, Wayanad, Kochi..."
             required
           />
+          <small className="hint">Popular: Munnar (Hill Station) • Alleppey (Houseboats) • Kovalam (Beach) • Thekkady (Wildlife)</small>
         </div>
 
         <div className="form-row">
@@ -283,14 +328,14 @@ const PlanYourTrip = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="travelers">Travelers</label>
+            <label htmlFor="travelers">Number of Travelers</label>
             <select
               id="travelers"
               name="travelers"
               value={tripData.travelers}
               onChange={handleChange}
             >
-              {[1,2,3,4,5,6].map(num => (
+              {[1,2,3,4,5,6,7,8,9,10].map(num => (
                 <option key={num} value={num}>
                   {num} {num === 1 ? 'person' : 'people'}
                 </option>
@@ -316,26 +361,25 @@ const PlanYourTrip = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="budget">Budget (optional - in USD)</label>
+          <label htmlFor="budget">Your Budget (optional - in ₹)</label>
           <input
             type="number"
             id="budget"
             name="budget"
             value={tripData.budget}
             onChange={handleChange}
-            placeholder="Enter your budget in USD"
+            placeholder="Enter your budget in Indian Rupees (₹)"
           />
         </div>
 
         <button type="submit" className="submit-btn">
-          Calculate Custom Trip
+          Calculate Custom Trip Cost
         </button>
       </form>
 
-      {/* Available Packages Section */}
       {availablePackages.length > 0 && (
         <div className="packages-section">
-          <h3>Available Fixed Packages for {tripData.destination}</h3>
+          <h3>Available Packages for {tripData.destination}</h3>
           <div className="packages-grid">
             {availablePackages.map((pkg, index) => (
               <div 
@@ -349,10 +393,9 @@ const PlanYourTrip = () => {
                 </div>
                 <p className="package-description">{pkg.description}</p>
                 <div className="package-price">
-                  <div className="usd-price">{formatCurrency(pkg.price)} per person</div>
-                  <div className="inr-price">≈ {formatCurrency(pkg.price, 'INR')} per person</div>
+                  <div className="price-main">{formatCurrency(pkg.price)} per person</div>
                   <div className="total-price">
-                    Total for {tripData.travelers} {tripData.travelers === 1 ? 'person' : 'people'}: {formatCurrency(pkg.price * tripData.travelers)}
+                    Total for {tripData.travelers} {tripData.travelers === 1 ? 'person' : 'people'}: <strong>{formatCurrency(pkg.price * tripData.travelers)}</strong>
                   </div>
                 </div>
                 <ul className="package-includes">
@@ -362,9 +405,12 @@ const PlanYourTrip = () => {
                 </ul>
                 <button 
                   className="select-package-btn"
-                  onClick={() => handlePackageSelect(pkg)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePackageSelect(pkg);
+                  }}
                 >
-                  {selectedPackage?.name === pkg.name ? 'Selected' : 'Select Package'}
+                  {selectedPackage?.name === pkg.name ? '✓ Selected' : 'Select Package'}
                 </button>
               </div>
             ))}
@@ -374,10 +420,9 @@ const PlanYourTrip = () => {
 
       {tripCalculation && (
         <div className="trip-calculation">
-          <h3>Trip Calculation Details</h3>
+          <h3>Trip Cost Breakdown</h3>
           
           {tripCalculation.isPackage ? (
-            // Package Calculation View
             <div className="package-calculation">
               <div className="package-badge">Fixed Package</div>
               <div className="calculation-summary">
@@ -391,14 +436,11 @@ const PlanYourTrip = () => {
                 </div>
                 <div className="summary-card">
                   <h4>Travelers</h4>
-                  <p>{tripData.travelers}</p>
+                  <p>{tripData.travelers} {tripData.travelers === 1 ? 'person' : 'people'}</p>
                 </div>
                 <div className="summary-card total-cost">
                   <h4>Total Package Cost</h4>
-                  <p>{formatCurrency(tripCalculation.totalCost)}</p>
-                  <div className="inr-conversion">
-                    {formatCurrency(tripCalculation.totalCost, 'INR')}
-                  </div>
+                  <p className="total-amount">{formatCurrency(tripCalculation.totalCost)}</p>
                 </div>
               </div>
 
@@ -412,7 +454,6 @@ const PlanYourTrip = () => {
               </div>
             </div>
           ) : (
-            // Custom Calculation View
             <>
               <div className="calculation-summary">
                 <div className="summary-card">
@@ -425,10 +466,7 @@ const PlanYourTrip = () => {
                 </div>
                 <div className="summary-card total-cost">
                   <h4>Total Estimated Cost</h4>
-                  <p>{formatCurrency(tripCalculation.totalCost)}</p>
-                  <div className="inr-conversion">
-                    {formatCurrency(tripCalculation.totalCost, 'INR')}
-                  </div>
+                  <p className="total-amount">{formatCurrency(tripCalculation.totalCost)}</p>
                 </div>
               </div>
 
@@ -444,7 +482,7 @@ const PlanYourTrip = () => {
                     <span>{formatCurrency(tripCalculation.breakdown.food)}</span>
                   </div>
                   <div className="breakdown-item">
-                    <span>Activities & Entertainment</span>
+                    <span>Activities & Sightseeing</span>
                     <span>{formatCurrency(tripCalculation.breakdown.activities)}</span>
                   </div>
                   <div className="breakdown-item">
@@ -455,7 +493,7 @@ const PlanYourTrip = () => {
               </div>
 
               <div className="daily-breakdown">
-                <h4>Daily Cost (per day)</h4>
+                <h4>Daily Cost Estimate (per day)</h4>
                 <div className="breakdown-grid">
                   <div className="breakdown-item">
                     <span>Accommodation</span>
@@ -474,8 +512,8 @@ const PlanYourTrip = () => {
                     <span>{formatCurrency(tripCalculation.dailyBreakdown.transportation)}</span>
                   </div>
                   <div className="breakdown-item total">
-                    <span>Daily Total</span>
-                    <span>{formatCurrency(tripCalculation.dailyTotal)}</span>
+                    <span><strong>Daily Total</strong></span>
+                    <span><strong>{formatCurrency(tripCalculation.dailyTotal)}</strong></span>
                   </div>
                 </div>
               </div>
@@ -497,14 +535,18 @@ const PlanYourTrip = () => {
                 <div className="budget-item">
                   <span>Remaining:</span>
                   <span className={tripCalculation.budgetStatus.remaining >= 0 ? 'positive' : 'negative'}>
-                    {formatCurrency(tripCalculation.budgetStatus.remaining)}
+                    {formatCurrency(Math.abs(tripCalculation.budgetStatus.remaining))}
+                    {tripCalculation.budgetStatus.remaining < 0 ? ' over budget' : ' remaining'}
                   </span>
                 </div>
                 <div className="budget-progress">
                   <div className="progress-bar">
                     <div 
                       className="progress-fill"
-                      style={{ width: `${Math.min(tripCalculation.budgetStatus.percentageUsed, 100)}%` }}
+                      style={{ 
+                        width: `${Math.min(tripCalculation.budgetStatus.percentageUsed, 100)}%`,
+                        backgroundColor: tripCalculation.budgetStatus.isWithinBudget ? '#4caf50' : '#f44336'
+                      }}
                     ></div>
                   </div>
                   <span>{tripCalculation.budgetStatus.percentageUsed}% of budget used</span>
@@ -512,7 +554,7 @@ const PlanYourTrip = () => {
                 <div className="budget-message">
                   {tripCalculation.budgetStatus.isWithinBudget ? 
                     '🎉 Your trip is within budget!' : 
-                    '⚠️ Your trip exceeds your budget. Consider adjusting your plans.'}
+                    '⚠️ Your trip exceeds your budget. Consider adjusting your plans or choosing a different package.'}
                 </div>
               </div>
             </div>
@@ -521,10 +563,9 @@ const PlanYourTrip = () => {
           <div className="calculation-notes">
             <p><strong>Note:</strong> 
               {tripCalculation.isPackage 
-                ? ' Package prices are fixed and include all listed amenities. Additional expenses may apply for personal spending.'
-                : ' These are estimated costs based on average prices. Actual costs may vary.'
+                ? ' Package prices include all listed amenities. Additional personal expenses may apply.'
+                : ' These are estimated costs based on average prices in Kerala. Actual costs may vary depending on season and hotel choice.'
               }
-              Exchange rate: 1 USD = {EXCHANGE_RATE} INR
             </p>
           </div>
         </div>

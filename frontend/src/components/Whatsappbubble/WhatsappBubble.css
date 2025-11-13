@@ -1,0 +1,72 @@
+.whatsapp-container {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+}
+
+/* Bubble Button */
+.whatsapp-bubble {
+  background: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  order: 2; /* Ensures bubble stays on the right */
+}
+
+.whatsapp-bubble:hover {
+  background: #1ebe5b;
+  transform: scale(1.1);
+}
+
+/* Tooltip / Modal - Now on the left */
+.whatsapp-tooltip {
+  background: rgb(6, 243, 22);
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-right: 12px; /* Space between tooltip and bubble */
+  white-space: nowrap;
+  animation: fadeInUp 0.3s ease forwards;
+  border: 1px solid #eaeaea;
+  position: relative;
+  order: 1; /* Ensures tooltip appears on the left */
+}
+
+/* Arrow pointing to the bubble (now on the right side of tooltip) */
+.whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  right: -6px; /* Position arrow on the right side */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid white; /* Arrow pointing right */
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
