@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Build outputs
+build/
+.next/
+out/
+dist/
+
+# Next.js export zip or build zip files
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+
+# LFS temp
+*.bin
+*.obj
+
+# OS system files
+.DS_Store
+Thumbs.db
