@@ -1,29 +1,19 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import packagesData from "../Data/PackageData";
 import "./PackageView.css";
 
 export default function PackageView({ package: pkg, onBack }) {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("overview");
-  const [selectedDate, setSelectedDate] = useState("");
-  const [travelers, setTravelers] = useState({
-    adults: 2,
-    children: 0,
-    infants: 0,
-  });
 
-  // Calculate total price based on travelers
-  const calculateTotalPrice = () => {
-    const basePrice = parseInt(pkg.price.replace(/[^0-9]/g, ""));
-    const total =
-      basePrice * travelers.adults + basePrice * 0.7 * travelers.children;
-    return total;
-  };
+  const fullPackageData = packagesData.find((p) => p.id === pkg.id);
+  const itinerary = fullPackageData?.itinerary || [];
+  const inclusions = fullPackageData?.inclusions || [];
+  const exclusions = fullPackageData?.exclusions || [];
 
-  // Handle Book Now click
   const handleBookNow = () => {
-    // Prepare package data to send to booking page
     const packageData = {
       id: pkg.id,
       name: pkg.title,
@@ -38,8 +28,6 @@ export default function PackageView({ package: pkg, onBack }) {
       rating: pkg.rating,
       reviews: pkg.reviews,
     };
-
-    // Navigate to booking page with package data in URL
     const packageDataString = encodeURIComponent(JSON.stringify(packageData));
     router.push(`/booking?packageData=${packageDataString}`);
   };
@@ -52,50 +40,6 @@ export default function PackageView({ package: pkg, onBack }) {
     { id: "gallery", label: "Gallery" },
   ];
 
-  // Sample itinerary data
-  const itinerary = [
-    {
-      day: 1,
-      title: "Arrival & Welcome",
-      activities: [
-        "Arrive at Cochin International Airport",
-        "Traditional welcome with garlands",
-        "Transfer to hotel/resort",
-        "Evening at leisure",
-        "Welcome dinner with local cuisine",
-      ],
-      meals: ["Dinner"],
-      accommodation: "Luxury Resort",
-    },
-    {
-      day: 2,
-      title: "Backwaters Experience",
-      activities: [
-        "Morning yoga session",
-        "Houseboat cruise through backwaters",
-        "Traditional Kerala lunch on board",
-        "Village walk and local interactions",
-        "Sunset viewing point",
-      ],
-      meals: ["Breakfast", "Lunch", "Dinner"],
-      accommodation: "Houseboat",
-    },
-    {
-      day: 3,
-      title: "Cultural Immersion & Departure",
-      activities: [
-        "Ayurvedic massage session",
-        "Visit to local spice plantation",
-        "Traditional Kathakali dance performance",
-        "Shopping for local handicrafts",
-        "Transfer to airport for departure",
-      ],
-      meals: ["Breakfast", "Lunch"],
-      accommodation: "None",
-    },
-  ];
-
-  // Sample reviews
   const reviews = [
     {
       id: 1,
@@ -126,65 +70,80 @@ export default function PackageView({ package: pkg, onBack }) {
     },
   ];
 
-  // Sample gallery images
-  const galleryImages = [
-    {
-      id: 1,
-      src: "/images/gallery/backwaters-1.jpg",
-      alt: "Backwaters scenery",
-    },
-    { id: 2, src: "/images/gallery/houseboat-1.jpg", alt: "Luxury houseboat" },
-    {
-      id: 3,
-      src: "/images/gallery/food-1.jpg",
-      alt: "Traditional Kerala cuisine",
-    },
-    { id: 4, src: "/images/gallery/sunset-1.jpg", alt: "Backwaters sunset" },
-    { id: 5, src: "/images/gallery/village-1.jpg", alt: "Local village life" },
-    {
-      id: 6,
-      src: "/images/gallery/ayurveda-1.jpg",
-      alt: "Ayurvedic treatment",
-    },
-  ];
+  // Method 1: Using the existing approach but fixed
+  const galleryImages = fullPackageData?.detailImages?.length
+    ? fullPackageData.detailImages.map((src, index) => ({
+        id: index + 1,
+        src: src,
+        alt: `${pkg.title} - Image ${index + 1}`,
+      }))
+    : [
+        {
+          id: 1,
+          src: pkg.image,
+          alt: pkg.title,
+        },
+      ];
 
-  const inclusions = [
-    {
-      type: "Accommodation",
-      details: "2 nights in luxury resort, 1 night in deluxe houseboat",
-    },
-    {
-      type: "Meals",
-      details:
-        "Daily breakfast, 2 lunches, 2 dinners including traditional Kerala cuisine",
-    },
-    {
-      type: "Transport",
-      details: "Airport transfers, all local transportation, houseboat cruise",
-    },
-    {
-      type: "Activities",
-      details:
-        "Village tour, yoga session, Kathakali dance performance, spice plantation visit",
-    },
-    {
-      type: "Services",
-      details: "English speaking guide, all entry fees, taxes",
-    },
-  ];
+  // Method 2: Alternative approach with fallback images
+  const getGalleryImages = () => {
+    if (fullPackageData?.detailImages?.length) {
+      return fullPackageData.detailImages.map((src, index) => ({
+        id: index + 1,
+        src: src,
+        alt: `${pkg.title} - Image ${index + 1}`,
+      }));
+    }
+    
+    // Fallback to main image or placeholder
+    return [
+      {
+        id: 1,
+        src: pkg.image,
+        alt: pkg.title,
+      },
+      {
+        id: 2,
+        src: "/assets/images/placeholder-1.jpg",
+        alt: `${pkg.title} - View 1`,
+      },
+      {
+        id: 3,
+        src: "/assets/images/placeholder-2.jpg",
+        alt: `${pkg.title} - View 2`,
+      },
+      {
+        id: 4,
+        src: "/assets/images/placeholder-3.jpg",
+        alt: `${pkg.title} - View 3`,
+      },
+    ];
+  };
 
-  const exclusions = [
-    "Airfare and travel insurance",
-    "Personal expenses and tips",
-    "Alcoholic beverages",
-    "Any services not mentioned in inclusions",
-    "Optional activities",
-  ];
+  // Method 3: Using img tag instead of backgroundImage for better error handling
+  const ImageWithFallback = ({ src, alt, className, fallbackSrc = "/assets/images/placeholder.jpg" }) => {
+    const [imgSrc, setImgSrc] = useState(src);
+    
+    const handleError = () => {
+      setImgSrc(fallbackSrc);
+    };
+
+    return (
+      <img
+        src={imgSrc}
+        alt={alt}
+        className={className}
+        onError={handleError}
+        loading="lazy"
+      />
+    );
+  };
+
+  const finalGalleryImages = getGalleryImages();
 
   return (
     <section className="package-view-section">
       <div className="container">
-        {/* Back Button */}
         <div className="back-button-container">
           <button onClick={onBack} className="back-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -201,9 +160,7 @@ export default function PackageView({ package: pkg, onBack }) {
         </div>
 
         <div className="package-view-layout">
-          {/* Main Content */}
           <div className="package-view-main">
-            {/* Package Header */}
             <div className="package-view-header">
               <div className="package-breadcrumb">
                 <span>Packages</span>
@@ -237,22 +194,31 @@ export default function PackageView({ package: pkg, onBack }) {
               </div>
             </div>
 
-            {/* Package Gallery */}
+            {/* Fixed Gallery Section */}
             <div className="package-gallery">
               <div className="main-image">
-                <div className="image-placeholder">
-                  <span className="placeholder-icon">🏞️</span>
-                </div>
+                <ImageWithFallback
+                  src={finalGalleryImages[0].src}
+                  alt={finalGalleryImages[0].alt}
+                  className="main-gallery-image"
+                  fallbackSrc="/assets/images/placeholder.jpg"
+                />
               </div>
+
               <div className="thumbnail-grid">
-                {galleryImages.slice(0, 4).map((image, index) => (
+                {finalGalleryImages.slice(1, 5).map((image, index) => (
                   <div key={image.id} className="thumbnail">
-                    <div className="image-placeholder small">
-                      <span className="placeholder-icon">📸</span>
-                    </div>
-                    {index === 3 && galleryImages.length > 4 && (
+                    <ImageWithFallback
+                      src={image.src}
+                      alt={image.alt}
+                      className="thumbnail-image"
+                      fallbackSrc="/assets/images/placeholder.jpg"
+                    />
+                    
+                    {/* Show "+X" on the LAST thumbnail only */}
+                    {index === 3 && finalGalleryImages.length > 5 && (
                       <div className="more-images">
-                        +{galleryImages.length - 4}
+                        +{finalGalleryImages.length - 5}
                       </div>
                     )}
                   </div>
@@ -260,7 +226,6 @@ export default function PackageView({ package: pkg, onBack }) {
               </div>
             </div>
 
-            {/* Tabs Navigation */}
             <div className="package-tabs">
               {tabs.map((tab) => (
                 <button
@@ -273,22 +238,13 @@ export default function PackageView({ package: pkg, onBack }) {
               ))}
             </div>
 
-            {/* Tab Content */}
             <div className="tab-content">
-              {/* Overview Tab */}
               {activeTab === "overview" && (
                 <div className="overview-content">
                   <div className="overview-section">
                     <h3>Package Description</h3>
                     <p>{pkg.description}</p>
-                    <p>
-                      Experience the magic of Kerala's backwaters with this
-                      carefully curated package. From serene houseboat cruises
-                      to authentic cultural experiences, this journey offers the
-                      perfect blend of relaxation and adventure.
-                    </p>
                   </div>
-
                   <div className="overview-section">
                     <h3>Key Features</h3>
                     <div className="features-grid">
@@ -334,7 +290,6 @@ export default function PackageView({ package: pkg, onBack }) {
                 </div>
               )}
 
-              {/* Itinerary Tab */}
               {activeTab === "itinerary" && (
                 <div className="itinerary-content">
                   <div className="itinerary-timeline">
@@ -344,7 +299,6 @@ export default function PackageView({ package: pkg, onBack }) {
                           <div className="day-number">Day {day.day}</div>
                           <h3 className="day-title">{day.title}</h3>
                         </div>
-
                         <div className="timeline-content">
                           <div className="activities-section">
                             <h4>Activities</h4>
@@ -354,7 +308,6 @@ export default function PackageView({ package: pkg, onBack }) {
                               ))}
                             </ul>
                           </div>
-
                           <div className="day-details">
                             <div className="detail-item">
                               <span className="detail-label">Meals:</span>
@@ -378,7 +331,6 @@ export default function PackageView({ package: pkg, onBack }) {
                 </div>
               )}
 
-              {/* Inclusions Tab */}
               {activeTab === "inclusions" && (
                 <div className="inclusions-content">
                   <div className="inclusions-section">
@@ -395,7 +347,6 @@ export default function PackageView({ package: pkg, onBack }) {
                       ))}
                     </div>
                   </div>
-
                   <div className="exclusions-section">
                     <h3>What's Not Included</h3>
                     <div className="exclusions-list">
@@ -410,7 +361,6 @@ export default function PackageView({ package: pkg, onBack }) {
                 </div>
               )}
 
-              {/* Reviews Tab */}
               {activeTab === "reviews" && (
                 <div className="reviews-content">
                   <div className="reviews-summary">
@@ -443,7 +393,6 @@ export default function PackageView({ package: pkg, onBack }) {
                       </div>
                     </div>
                   </div>
-
                   <div className="reviews-list">
                     {reviews.map((review) => (
                       <div key={review.id} className="review-card">
@@ -468,15 +417,17 @@ export default function PackageView({ package: pkg, onBack }) {
                 </div>
               )}
 
-              {/* Gallery Tab */}
               {activeTab === "gallery" && (
                 <div className="gallery-content">
                   <div className="gallery-grid">
-                    {galleryImages.map((image) => (
+                    {finalGalleryImages.map((image) => (
                       <div key={image.id} className="gallery-item">
-                        <div className="image-placeholder gallery">
-                          <span className="placeholder-icon">🏞️</span>
-                        </div>
+                        <ImageWithFallback
+                          src={image.src}
+                          alt={image.alt}
+                          className="gallery-image"
+                          fallbackSrc="/assets/images/placeholder.jpg"
+                        />
                         <div className="image-caption">{image.alt}</div>
                       </div>
                     ))}
@@ -486,7 +437,6 @@ export default function PackageView({ package: pkg, onBack }) {
             </div>
           </div>
 
-          {/* Booking Sidebar */}
           <div className="package-booking-sidebar">
             <div className="booking-card">
               <div className="booking-header">
@@ -503,57 +453,10 @@ export default function PackageView({ package: pkg, onBack }) {
                   </div>
                 </div>
               </div>
-
               <div className="booking-form">
-                <div className="form-group">
-                  <label>Select Date</label>
-                  <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                    className="date-input"
-                    min={new Date().toISOString().split("T")[0]}
-                  />
-                </div>
-
-                <div className="price-breakdown">
-                  <div className="price-row">
-                    <span>Base Price ({travelers.adults} adults)</span>
-                    <span>
-                      ₹
-                      {(
-                        parseInt(pkg.price.replace(/[^0-9]/g, "")) *
-                        travelers.adults
-                      ).toLocaleString()}
-                    </span>
-                  </div>
-                  {travelers.children > 0 && (
-                    <div className="price-row">
-                      <span>Children ({travelers.children})</span>
-                      <span>
-                        ₹
-                        {parseInt(
-                          pkg.price.replace(/[^0-9]/g, "") *
-                            0.7 *
-                            travelers.children
-                        ).toLocaleString()}
-                      </span>
-                    </div>
-                  )}
-                  <div className="price-row total">
-                    <span>Total Amount</span>
-                    <span>₹{calculateTotalPrice().toLocaleString()}</span>
-                  </div>
-                </div>
-
-                <button
-                  className="book-now-btn"
-                  onClick={handleBookNow}
-                  disabled={!selectedDate}
-                >
+                <button className="book-now-btn" onClick={handleBookNow}>
                   Book Now
                 </button>
-
                 <div className="booking-features">
                   <div className="feature">
                     <div className="feature-icon">🔒</div>
@@ -571,7 +474,6 @@ export default function PackageView({ package: pkg, onBack }) {
               </div>
             </div>
 
-            {/* Quick Contact */}
             <div className="quick-contact-card">
               <div className="contact-icon">💬</div>
               <h4>Need Help?</h4>
