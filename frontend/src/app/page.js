@@ -8,6 +8,9 @@ import Packages from "@/components/Packages/Packages";
 import VahicleBooking from "@/components/VehicleBooking/VehicleBooking";
 import AboutSection from "@/components/About/About";
 import Footer from "@/components/Footer/Footer";
+import WhatsAppBubble from "@/components/Whatsappbubble/WhatsappBubble";
+import FloatingPhone from "@/components/Mobilenumber/MobileNum";
+
 
 export default function Home() {
   const pageStyle = {
@@ -65,12 +68,15 @@ export default function Home() {
       <div style={overlayStyle}></div>
 
       {/* Page Sections */}
+      
       <Hero />
+      <FloatingPhone/>
       <SpecialOffers />
       <Packages />
       <Destination />
       <VahicleBooking />
       <AboutSection />
+      {/* <WhatsAppBubble/> */}
       <Footer />
     </div>
   );

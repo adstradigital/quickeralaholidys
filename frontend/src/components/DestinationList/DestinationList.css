@@ -1,7 +1,7 @@
 .destinations-modern {
     min-height: 100vh;
   background: linear-gradient(135deg, #74f0c7 0%, #398042 50%, #56f585 100%);
-    padding: 10rem 0;
+    padding: 8rem 0;
 }
 
 .container {
@@ -122,17 +122,42 @@
 }
 
 .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.75rem 1rem; /* 🔧 Slightly reduced vertical padding */
+  pointer-events: none; /* Prevent accidental clicks */
 }
+
+.category-badge,
+.rating {
+  pointer-events: auto; /* Allow buttons or hover to work */
+  margin-top: 4px; /* 🔧 Pulls both badges slightly downward */
+  margin-right: 20px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.45rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f59e0b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: translateY(3px); /* ✅ moves rating slightly down */
+}
+
 
 .category-badge {
     background: rgba(255, 255, 255, 0.95);
@@ -146,20 +171,6 @@
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.rating {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 0.5rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #f59e0b;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-}
 
 .card-content {
     padding: 1.5rem;

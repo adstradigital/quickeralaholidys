@@ -1,4 +1,5 @@
 import DestinationList from '@/components/DestinationList/DestinationList';
+import Footer from '@/components/Footer/Footer';
 // import DestinationsMenu from '@/components/DestinationList/DestinationList';
 import Header from '@/components/Header/Header';
 
@@ -7,6 +8,7 @@ export default function DestinationsPage() {
     <>
     <Header />
     <DestinationList />
+    <Footer/>
     </>
   )
 }

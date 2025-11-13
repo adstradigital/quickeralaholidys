@@ -201,4 +201,7 @@ def update_enquiry_status(request, id):
         serializer = EnquirySerializer(enquiry)
         return Response({'status': 'success', 'data': serializer.data})
     except Enquiry.DoesNotExist:
+        print("AUTH HEADER:", request.headers.get("Authorization"))
         return Response({'status': 'error', 'message': 'Enquiry not found'}, status=404)
+
+    

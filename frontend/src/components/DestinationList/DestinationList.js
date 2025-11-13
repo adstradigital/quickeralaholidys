@@ -11,6 +11,11 @@ export default function DestinationList() {
       title: "Munnar Tea Gardens",
       location: "Munnar, Kerala",
       image: "/assets/destinations/munnar-tea-gardens.png",
+      detailImages: [
+        "/assets/destinations/details/munnar-hero.jpg",
+        "/assets/destinations/details/munnar-gallery1.jpg",
+        "/assets/destinations/details/munnar-gallery2.jpg",
+      ],
       shortDesc: "Lush tea gardens and misty hills of Kerala",
       description:
         "Explore the lush green tea plantations, misty mountains, and waterfalls in Kerala's famous hill station.",
@@ -54,9 +59,7 @@ export default function DestinationList() {
         },
       ],
       details: {
-        fullDescription: `Munnar, nestled in the Western Ghats of Kerala, is a serene hill station renowned for its rolling tea plantations, misty mountains, and lush green valleys. Situated at an altitude of around 1,600 meters above sea level, it offers a refreshing escape from the heat of the plains. The landscape, carpeted with endless tea gardens and dotted with colonial-era bungalows, reflects both natural beauty and historical charm.
-The region is home to diverse flora and fauna, including the rare Neelakurinji flower that blooms once every 12 years and the endangered Nilgiri Tahr found in the Eravikulam National Park. Scenic spots like Mattupetty Dam, Echo Point, and Kundala Lake attract visitors with their tranquil waters and panoramic views. The cool, misty climate adds a magical touch, making it a favorite destination for honeymooners and nature lovers alike.
-Beyond its natural splendor, Munnar has a vibrant local culture influenced by tea workers and tribal communities. Tourists can explore tea factories to witness the art of tea processing, visit spice gardens, or trek through forested hills. Combining adventure, relaxation, and culture, Munnar stands as one of Kerala's most enchanting and timeless travel destinations.`,
+        fullDescription: `Munnar, nestled in the Western Ghats of Kerala, is a serene hill station renowned for its rolling tea plantations, misty mountains, and lush green valleys. Its tea gardens and colonial charm make it one of South India's most popular hill destinations.`,
         climate: "Pleasant throughout the year (15°C to 25°C)",
         idealFor: ["Honeymooners", "Nature Lovers", "Photographers"],
         mustVisit: ["Eravikulam National Park", "Mattupetty Dam", "Tea Museum"],
@@ -68,6 +71,11 @@ Beyond its natural splendor, Munnar has a vibrant local culture influenced by te
       title: "Wayanad Wildlife",
       location: "Wayanad, Kerala",
       image: "/assets/destinations/wayanad-wildlife.png",
+      detailImages: [
+        "/assets/destinations/details/wayanad-hero.jpg",
+        "/assets/destinations/details/wayanad-gallery1.jpg",
+        "/assets/destinations/details/wayanad-gallery2.webp",
+      ],
       shortDesc: "Wildlife and waterfalls in the Western Ghats",
       description:
         "Embark on jungle safaris, explore ancient caves, and witness diverse wildlife in the Western Ghats.",
@@ -91,6 +99,7 @@ Beyond its natural splendor, Munnar has a vibrant local culture influenced by te
       type: "wildlife",
       badge: "Adventure",
       duration: "3-4 days",
+      featured: true,
       packages: [
         {
           id: 201,
@@ -115,9 +124,7 @@ Beyond its natural splendor, Munnar has a vibrant local culture influenced by te
         },
       ],
       details: {
-        fullDescription: `Wayanad, nestled in the Western Ghats, is a pristine district in Kerala known for its rich biodiversity, mist-covered mountains, and vibrant tribal culture. The region's name translates to "Land of Paddy Fields," and its lush green landscapes are dotted with spice plantations, waterfalls, and ancient caves. Wayanad offers a perfect blend of adventure, wildlife, and cultural experiences, making it an ideal destination for nature enthusiasts and adventure seekers.
-The district is home to several wildlife sanctuaries, including the Wayanad Wildlife Sanctuary, which forms part of the Nilgiri Biosphere Reserve. Visitors can spot elephants, tigers, leopards, and various bird species in their natural habitat. The Edakkal Caves, with their ancient rock engravings dating back to the Neolithic age, provide a fascinating glimpse into prehistoric human settlements. The Banasura Sagar Dam, set against the backdrop of the Banasura Hills, offers breathtaking views and boating opportunities.
-Wayanad's spice plantations, especially coffee, pepper, and cardamom, are major attractions where tourists can learn about spice cultivation and processing. The region's tribal communities preserve unique traditions and crafts, offering cultural immersion experiences. With its cool climate, scenic beauty, and diverse attractions, Wayanad promises an unforgettable journey into the heart of Kerala's wilderness.`,
+        fullDescription: `Wayanad, a verdant region in the Western Ghats, is a haven for wildlife lovers and trekkers. The district’s forests and waterfalls make it a true natural paradise.`,
         climate: "Moderate climate (18°C to 28°C)",
         idealFor: [
           "Wildlife Enthusiasts",
@@ -137,6 +144,11 @@ Wayanad's spice plantations, especially coffee, pepper, and cardamom, are major 
       title: "Alleppey Backwaters",
       location: "Alleppey, Kerala",
       image: "/assets/destinations/alleppey-backwaters.png",
+      detailImages: [
+        "/assets/destinations/details/alleppey-hero.jpg",
+        "/assets/destinations/details/alleppey-gallery1.jpg",
+        "/assets/destinations/details/alleppey-gallery2.jpg",
+      ],
       shortDesc: "Venice of the East with backwaters and houseboats",
       description:
         "Experience the serene backwaters of Kerala with traditional houseboat stays, coconut lagoons, and authentic local cuisine.",
@@ -160,6 +172,7 @@ Wayanad's spice plantations, especially coffee, pepper, and cardamom, are major 
       type: "backwaters",
       badge: "Popular",
       duration: "2-3 days",
+      featured: true,
       packages: [
         {
           id: 301,
@@ -184,9 +197,7 @@ Wayanad's spice plantations, especially coffee, pepper, and cardamom, are major 
         },
       ],
       details: {
-        fullDescription: `Alappuzha, often called the Venice of the East, is a picturesque town in Kerala famous for its tranquil backwaters, houseboats, and network of canals. Nestled along the Arabian Sea coast, it serves as one of the most beautiful and historically rich destinations in South India. Its shimmering lagoons, palm-fringed waterways, and traditional wooden houseboats make it a dreamlike experience for travelers seeking peace and scenic charm.
-The town's economy and culture revolve around its intricate water system and thriving coir industry. A cruise through the backwaters offers glimpses of everyday life — fishermen casting nets, lush paddy fields, and small village homes on the water's edge. The annual Nehru Trophy Boat Race, held on the Punnamada Lake, draws thousands of spectators and showcases Kerala's traditional vallam kali (snake boat race) spirit.
-Beyond its natural allure, Alappuzha also has historical importance, with colonial-era architecture, old churches, and temples adding depth to its cultural landscape. Whether it's a peaceful stay on a houseboat, a sunset at Alappuzha Beach, or a walk through bustling canalside markets, the town perfectly captures the rhythm and soul of Kerala's backwater life.`,
+        fullDescription: `Alleppey, also known as Alappuzha, is famed for its mesmerizing backwaters and charming houseboats that glide through tranquil lagoons lined with coconut palms.`,
         climate: "Tropical (23°C to 32°C)",
         idealFor: ["Couples", "Family Trips", "Wellness Seekers"],
         mustVisit: [
@@ -202,6 +213,11 @@ Beyond its natural allure, Alappuzha also has historical importance, with coloni
       title: "Kovalam Beach",
       location: "Kovalam, Kerala",
       image: "/assets/destinations/kovalam-beach.png",
+      detailImages: [
+        "/assets/destinations/details/kovalam-hero.webp",
+        "/assets/destinations/details/kovalam-gallery1.jpg",
+        "/assets/destinations/details/kovalam-gallery2.jpg",
+      ],
       shortDesc: "Pristine beaches and lighthouse views",
       description:
         "Relax on pristine beaches, enjoy Ayurvedic treatments, and witness spectacular sunsets over the Arabian Sea.",
@@ -220,6 +236,7 @@ Beyond its natural allure, Alappuzha also has historical importance, with coloni
       type: "beach",
       badge: "Relaxing",
       duration: "2-4 days",
+      featured: false,
       packages: [
         {
           id: 401,
@@ -244,9 +261,7 @@ Beyond its natural allure, Alappuzha also has historical importance, with coloni
         },
       ],
       details: {
-        fullDescription: `Kovalam, located near Thiruvananthapuram in Kerala, is one of India's most celebrated beach destinations, known for its golden sands, swaying coconut palms, and calm azure waters. Once a quiet fishing village, Kovalam rose to fame in the 1970s as a hippie haven and has since evolved into a world-class seaside retreat attracting tourists from around the globe. The town's crescent-shaped coastline, divided into Lighthouse Beach, Hawah Beach, and Samudra Beach, offers a perfect blend of leisure and natural beauty.
-The Lighthouse Beach, named after its iconic red-and-white Vizhinjam Lighthouse, provides stunning panoramic views of the Arabian Sea, especially at sunset. Kovalam's gentle waves make it ideal for swimming, surfing, and catamaran rides, while Ayurvedic spas and yoga centers offer rejuvenating experiences deeply rooted in Kerala's wellness traditions. The laid-back atmosphere, coupled with beachside cafes serving fresh seafood, creates a serene yet lively coastal vibe.
-Beyond the beaches, Kovalam is a gateway to explore Kerala's coastal culture and marine heritage. Visitors can take short trips to nearby attractions like the Vizhinjam Marine Aquarium, Padmanabhapuram Palace, or the bustling city of Thiruvananthapuram. Whether for relaxation, adventure, or cultural immersion, Kovalam embodies the essence of Kerala's tropical charm and hospitality.`,
+        fullDescription: `Kovalam is Kerala’s coastal gem famous for its crescent-shaped beaches, iconic lighthouse, and rejuvenating Ayurvedic spas.`,
         climate: "Tropical (24°C to 32°C)",
         idealFor: ["Beach Lovers", "Wellness Seekers", "Couples"],
         mustVisit: ["Lighthouse Beach", "Hawa Beach", "Samudra Beach"],
@@ -258,6 +273,11 @@ Beyond the beaches, Kovalam is a gateway to explore Kerala's coastal culture and
       title: "Kochi Fort",
       location: "Kochi, Kerala",
       image: "/assets/destinations/kochi-fort.png",
+      detailImages: [
+        "/assets/destinations/details/kochi-hero.webp",
+        "/assets/destinations/details/kochi-gallery1.webp",
+        "/assets/destinations/details/kochi-gallery2.webp",
+      ],
       shortDesc: "Historic port city with Chinese fishing nets",
       description:
         "Discover the rich colonial history, Chinese fishing nets, and vibrant art scene in this coastal city.",
@@ -281,6 +301,7 @@ Beyond the beaches, Kovalam is a gateway to explore Kerala's coastal culture and
       type: "cultural",
       badge: "Historic",
       duration: "2-3 days",
+      featured: false,
       packages: [
         {
           id: 501,
@@ -305,9 +326,7 @@ Beyond the beaches, Kovalam is a gateway to explore Kerala's coastal culture and
         },
       ],
       details: {
-        fullDescription: `Kochi, often called the "Queen of the Arabian Sea," is a vibrant port city in Kerala that beautifully blends traditional Indian culture with colonial influences. Its strategic location on the southwest coast of India has made it a melting pot of various cultures, including Portuguese, Dutch, and British, each leaving their mark on the city's architecture, cuisine, and way of life. Fort Kochi, with its charming streets and historic buildings, is the cultural heart of the city.
-The iconic Chinese fishing nets, believed to have been introduced by Chinese traders in the 14th century, are a defining feature of Kochi's waterfront. These massive fishing contraptions create a picturesque scene, especially during sunset. The city is also home to the Paradesi Synagogue, the oldest active synagogue in the Commonwealth, and the St. Francis Church, where Vasco da Gama was originally buried. The bustling spice markets and contemporary art galleries add to Kochi's unique character.
-Kochi's culinary scene is as diverse as its culture, offering everything from traditional Kerala sadya to European-inspired dishes. The Kochi-Muziris Biennale, an international contemporary art exhibition, has put the city on the global art map. With its rich history, cultural diversity, and modern amenities, Kochi offers a fascinating glimpse into Kerala's past and present.`,
+        fullDescription: `Kochi, known as the Queen of the Arabian Sea, blends colonial charm and modern energy. Famous for its historic Fort Kochi area, the city showcases a mix of Portuguese, Dutch, and British influences.`,
         climate: "Tropical (23°C to 32°C)",
         idealFor: ["History Buffs", "Culture Enthusiasts", "Food Lovers"],
         mustVisit: [
@@ -324,6 +343,11 @@ Kochi's culinary scene is as diverse as its culture, offering everything from tr
       title: "Thekkady Periyar",
       location: "Thekkady, Kerala",
       image: "/assets/destinations/thekkady-periyar.png",
+      detailImages: [
+        "/assets/destinations/details/thekkady-hero.webp",
+        "/assets/destinations/details/thekkady-gallery1.webp",
+        "/assets/destinations/details/thekkady-gallery2.webp",
+      ],
       shortDesc: "Wildlife sanctuary and spice plantations",
       description:
         "Experience wildlife in its natural habitat with boat cruises, spice plantations, and tribal culture.",
@@ -347,6 +371,7 @@ Kochi's culinary scene is as diverse as its culture, offering everything from tr
       type: "wildlife",
       badge: "Nature",
       duration: "2-3 days",
+      featured: false,
       packages: [
         {
           id: 601,
@@ -371,9 +396,7 @@ Kochi's culinary scene is as diverse as its culture, offering everything from tr
         },
       ],
       details: {
-        fullDescription: `Thekkady, located in the Idukki district of Kerala, is renowned for the Periyar National Park and Wildlife Sanctuary, one of India's most fascinating wildlife reserves. Spread over 777 square kilometers, the sanctuary surrounds the picturesque Periyar Lake, formed by the Mullaperiyar Dam across the Periyar River. Thekkady offers a unique opportunity to observe wildlife in their natural habitat, with the boat cruise on Periyar Lake being the prime attraction for spotting elephants, tigers, bison, and various bird species.
-The region is also famous for its spice plantations, where visitors can see cardamom, pepper, cinnamon, and cloves being cultivated. Guided tours through these plantations provide insights into spice cultivation and processing. Thekkady's cultural landscape is enriched by traditional performances like Kathakali and Kalaripayattu, showcasing Kerala's ancient art forms and martial traditions. The nearby plantations also offer opportunities for bamboo rafting, jungle walks, and elephant interactions.
-The cool climate and misty mountains make Thekkady a pleasant destination throughout the year. The town serves as a perfect base for exploring the Western Ghats' biodiversity while enjoying comfortable accommodations and authentic Kerala cuisine. Whether you're a wildlife enthusiast, nature lover, or cultural explorer, Thekkady promises an immersive experience in Kerala's natural and cultural heritage.`,
+        fullDescription: `Thekkady, home to the Periyar Wildlife Sanctuary, is Kerala’s ultimate eco-tourism destination. From boat safaris to spice plantation tours, every experience connects you with nature.`,
         climate: "Pleasant (18°C to 29°C)",
         idealFor: [
           "Wildlife Lovers",
@@ -393,6 +416,11 @@ The cool climate and misty mountains make Thekkady a pleasant destination throug
       title: "Varkala Cliffs",
       location: "Varkala, Kerala",
       image: "/assets/destinations/varkala-cliffs.png",
+      detailImages: [
+        "/assets/destinations/details/varkala-hero.jpg",
+        "/assets/destinations/details/varkala-gallery1.webp",
+        "/assets/destinations/details/varkala-gallery2.webp",
+      ],
       shortDesc: "Cliffside beaches and spiritual vibes",
       description:
         "Stunning cliffside beaches with mineral springs, yoga retreats, and breathtaking ocean views.",
@@ -416,6 +444,7 @@ The cool climate and misty mountains make Thekkady a pleasant destination throug
       type: "beach",
       badge: "Spiritual",
       duration: "2-4 days",
+      featured: false,
       packages: [
         {
           id: 701,
@@ -440,9 +469,7 @@ The cool climate and misty mountains make Thekkady a pleasant destination throug
         },
       ],
       details: {
-        fullDescription: `Varkala, a coastal town in Kerala, is renowned for its unique laterite cliff formations that overlook the Arabian Sea, creating one of the most spectacular beach landscapes in India. Unlike typical Kerala beaches, Varkala's main beach is nestled at the bottom of these majestic cliffs, with a paved pathway running along the edge offering stunning sea views. The town is not just a beach destination but also an important Hindu pilgrimage center, home to the ancient Janardanaswamy Temple.
-The mineral springs at Varkala are believed to have medicinal properties, and many visitors come specifically to take a dip in these holy waters. The beach is dotted with numerous cafes and shops built into the cliffside, offering a bohemian atmosphere that attracts backpackers, yoga enthusiasts, and spiritual seekers from around the world. The evenings come alive with the sound of waves crashing against the cliffs and the sight of spectacular sunsets painting the sky in hues of orange and purple.
-Varkala's spiritual significance, combined with its natural beauty, makes it a unique destination that offers both relaxation and cultural enrichment. Whether you're practicing yoga at sunrise, exploring the local markets, or simply watching the fishermen bring in their catch, Varkala provides a serene escape from the hustle of modern life.`,
+        fullDescription: `Varkala, famous for its dramatic cliffs overlooking the Arabian Sea, is Kerala’s bohemian paradise blending spirituality and seaside relaxation.`,
         climate: "Tropical (24°C to 33°C)",
         idealFor: ["Spiritual Seekers", "Yoga Enthusiasts", "Beach Lovers"],
         mustVisit: ["Varkala Beach", "Janardanaswamy Temple", "Anjengo Fort"],
@@ -454,6 +481,11 @@ Varkala's spiritual significance, combined with its natural beauty, makes it a u
       title: "Kumarakom Backwaters",
       location: "Kumarakom, Kerala",
       image: "/assets/destinations/kumarakom-backwaters.png",
+      detailImages: [
+        "/assets/destinations/details/kumarakom-hero.webp",
+        "/assets/destinations/details/kumarakom-gallery1.webp",
+        "/assets/destinations/details/kumarakom-gallery2.webp",
+      ],
       shortDesc: "Luxury backwater experience with bird sanctuary",
       description:
         "Luxury houseboat experience in tranquil backwaters with bird watching and village life experiences.",
@@ -477,6 +509,7 @@ Varkala's spiritual significance, combined with its natural beauty, makes it a u
       type: "backwaters",
       badge: "Luxury",
       duration: "2-3 days",
+      featured: true,
       packages: [
         {
           id: 801,
@@ -501,9 +534,7 @@ Varkala's spiritual significance, combined with its natural beauty, makes it a u
         },
       ],
       details: {
-        fullDescription: `Kumarakom, a cluster of small islands on the Vembanad Lake in Kerala, is synonymous with luxury backwater experiences and pristine natural beauty. This picturesque destination, located near Kottayam, offers a more refined and tranquil alternative to the bustling backwaters of Alleppey. The region's star attraction is the Kumarakom Bird Sanctuary, spread over 14 acres, which serves as a haven for migratory birds like Siberian storks, herons, and egrets, especially between November and February.
-The backwaters of Kumarakom are characterized by their calm, clear waters and abundant coconut palms. Luxury houseboats, often equipped with modern amenities and traditional Kerala decor, provide an unparalleled way to experience the serene waterways. These floating villas allow visitors to witness rural Kerala life up close – from farmers working in paddy fields to women washing clothes by the water's edge. The experience is complemented by freshly prepared Kerala cuisine served on board.
-Kumarakom's commitment to sustainable tourism is evident in its responsible houseboat operations and conservation efforts. The destination offers various activities including canoe rides, village walks, and visits to local coir-making units. Whether you're seeking romantic solitude, bird watching opportunities, or cultural immersion, Kumarakom delivers an authentic yet luxurious Kerala backwater experience that stays with you long after your visit.`,
+        fullDescription: `Kumarakom offers a refined backwater experience filled with luxury, tranquility, and scenic charm. The bird sanctuary and lake-view houseboats define its beauty.`,
         climate: "Tropical (22°C to 32°C)",
         idealFor: ["Luxury Travelers", "Bird Watchers", "Honeymooners"],
         mustVisit: [
@@ -519,6 +550,11 @@ Kumarakom's commitment to sustainable tourism is evident in its responsible hous
       title: "Bekal Fort Beach",
       location: "Bekal, Kerala",
       image: "/assets/destinations/bekal-fort.png",
+      detailImages: [
+        "/assets/destinations/details/bekal-hero.webp",
+        "/assets/destinations/details/bekal-gallery1.webp",
+        "/assets/destinations/details/bekal-gallery2.webp",
+      ],
       shortDesc: "Historic fort with panoramic sea views",
       description:
         "Historic fort overlooking the Arabian Sea with pristine beaches and panoramic views.",
@@ -542,6 +578,7 @@ Kumarakom's commitment to sustainable tourism is evident in its responsible hous
       type: "beach",
       badge: "Historic",
       duration: "2-3 days",
+      featured: false,
       packages: [
         {
           id: 901,
@@ -566,9 +603,7 @@ Kumarakom's commitment to sustainable tourism is evident in its responsible hous
         },
       ],
       details: {
-        fullDescription: `Bekal, located in the Kasaragod district of Kerala, is famous for the magnificent Bekal Fort, the largest fort in Kerala. This 17th-century fort, built by Shivappa Nayaka of the Keladi dynasty, stands on a promontory overlooking the Arabian Sea, offering breathtaking panoramic views of the coastline. Unlike many other Indian forts, Bekal Fort was not built for administrative purposes but purely for military defense, evident in its strategic design with holes on the outer walls for aiming and attacking enemies.
-The fort's key features include the observation tower that provides a 360-degree view of the surroundings, the ancient mosque just outside the fort, and the well-maintained laterite structure that has withstood the test of time. The beach adjacent to the fort, with its clean sands and clear waters, complements the historical experience with natural beauty. Bekal gained additional fame as a filming location for several Indian movies, particularly the song sequences that showcased its scenic beauty.
-Beyond the fort, Bekal offers beautiful beaches, backwaters, and the unique Theyyam ritual performances that are an integral part of North Malabar's cultural heritage. The recently developed Bekal Beach Park and the walking path along the coast make it an ideal destination for leisurely strolls and sunset viewing. Bekal represents the perfect blend of history, culture, and natural beauty that characterizes Kerala's northern region.`,
+        fullDescription: `Bekal, with its magnificent 17th-century fort and pristine shoreline, combines historical grandeur with natural serenity. The panoramic views of the Arabian Sea make it one of Kerala’s most photogenic locations.`,
         climate: "Tropical (23°C to 33°C)",
         idealFor: ["History Enthusiasts", "Photographers", "Beach Lovers"],
         mustVisit: ["Bekal Fort", "Bekal Beach", "Kappil Beach", "Nileshwaram"],
@@ -580,6 +615,11 @@ Beyond the fort, Bekal offers beautiful beaches, backwaters, and the unique They
       title: "Athirappilly Waterfalls",
       location: "Thrissur, Kerala",
       image: "/assets/destinations/athirappilly-waterfalls.png",
+      detailImages: [
+        "/assets/destinations/details/athirappilly-hero.webp",
+        "/assets/destinations/details/athirappilly-gallery1.webp",
+        "/assets/destinations/details/athirappilly-gallery2.webp",
+      ],
       shortDesc: "The Niagara of India with lush rainforests",
       description:
         "Witness the magnificent 'Niagara of India' surrounded by lush green forests and wildlife.",
@@ -603,6 +643,7 @@ Beyond the fort, Bekal offers beautiful beaches, backwaters, and the unique They
       type: "nature",
       badge: "Spectacular",
       duration: "1-2 days",
+      featured: false,
       packages: [
         {
           id: 1001,
@@ -627,9 +668,7 @@ Beyond the fort, Bekal offers beautiful beaches, backwaters, and the unique They
         },
       ],
       details: {
-        fullDescription: `Athirappilly Waterfalls, often called the "Niagara of India," is one of Kerala's most spectacular natural attractions. Located on the Chalakudy River in Thrissur district, this majestic waterfall cascades down from a height of 80 feet, creating a thunderous roar and a misty spray that can be felt from a distance. The waterfall is situated in the midst of lush green rainforests that form part of the Western Ghats, recognized as a UNESCO World Heritage Site for their incredible biodiversity.
-The area around Athirappilly is home to several indigenous tribal communities and rich wildlife, including elephants, tigers, leopards, and numerous bird species. The Vazhachal Waterfalls, located close to Athirappilly, offers another stunning cascade amidst dense forests. The entire region is part of the Sholayar forest range and provides excellent opportunities for nature walks, bird watching, and photography. The sound of the waterfall, combined with the chirping of birds and the rustling of leaves, creates a symphony of nature that soothes the soul.
-Athirappilly has also gained fame as a popular filming location for Indian cinema, particularly for song sequences and dramatic scenes. The best time to visit is during the monsoon and post-monsoon seasons when the waterfall is at its most powerful and voluminous. However, the beauty of Athirappilly transcends seasons, offering a majestic spectacle of nature's power and beauty throughout the year.`,
+        fullDescription: `Athirappilly, Kerala’s most majestic waterfall, cascades from 80 feet amidst lush rainforests. A must-visit for photographers and nature lovers alike.`,
         climate: "Tropical (22°C to 35°C)",
         idealFor: ["Nature Lovers", "Photographers", "Adventure Seekers"],
         mustVisit: ["Athirappilly Falls", "Vazhachal Falls", "Chalakudy River"],
@@ -641,6 +680,11 @@ Athirappilly has also gained fame as a popular filming location for Indian cinem
       title: "Poovar Island",
       location: "Trivandrum, Kerala",
       image: "/assets/destinations/poovar-island.png",
+      detailImages: [
+        "/assets/destinations/details/poovar-hero.webp",
+        "/assets/destinations/details/poovar-gallery1.webp",
+        "/assets/destinations/details/poovar-gallery2.webp",
+      ],
       shortDesc: "Where backwaters meet the sea",
       description:
         "Unique island where the backwaters meet the sea, offering secluded beaches and mangrove forests.",
@@ -664,6 +708,7 @@ Athirappilly has also gained fame as a popular filming location for Indian cinem
       type: "backwaters",
       badge: "Exclusive",
       duration: "2-3 days",
+      featured: true,
       packages: [
         {
           id: 1101,
@@ -688,9 +733,7 @@ Athirappilly has also gained fame as a popular filming location for Indian cinem
         },
       ],
       details: {
-        fullDescription: `Poovar Island, located near Thiruvananthapuram, is one of Kerala's best-kept secrets – a tranquil estuary where the backwaters meet the Arabian Sea. This secluded island paradise is characterized by its golden sand beaches, serene backwaters, and lush mangrove forests. What makes Poovar unique is its geographical formation: a small strip of land separates the backwaters from the sea, creating a natural channel that changes with the tides and seasons.
-The island is accessible only by boat, which adds to its exclusive and untouched appeal. As you cruise through the backwaters, you'll witness a fascinating ecosystem where freshwater from the Neyyar River mixes with seawater, supporting diverse marine life and mangrove vegetation. The boat ride takes you through narrow canals flanked by coconut palms and traditional Chinese fishing nets, offering glimpses of local life and occasional sightings of migratory birds.
-Poovar's beach is particularly special – pristine, relatively untouched, and perfect for those seeking solitude away from crowded tourist spots. The island features luxury resorts that blend seamlessly with the natural surroundings, offering private villas and personalized services. Whether you're watching the spectacular sunset over the confluence of river and sea, enjoying fresh seafood, or simply relaxing in a hammock between palm trees, Poovar offers a slice of paradise that feels worlds away from the hustle of modern life.`,
+        fullDescription: `Poovar Island, a tranquil paradise near Trivandrum, sits at the confluence of backwaters, river, and sea — a rare natural wonder of Kerala.`,
         climate: "Tropical (24°C to 32°C)",
         idealFor: ["Honeymooners", "Privacy Seekers", "Nature Lovers"],
         mustVisit: ["Poovar Beach", "Neyyar River", "Golden Sand Bar"],
@@ -702,6 +745,11 @@ Poovar's beach is particularly special – pristine, relatively untouched, and p
       title: "Silent Valley National Park",
       location: "Palakkad, Kerala",
       image: "/assets/destinations/silent-valley.png",
+      detailImages: [
+        "/assets/destinations/details/silent-valley-hero.webp",
+        "/assets/destinations/details/silent-valley-gallery1.webp",
+        "/assets/destinations/details/silent-valley-gallery2.webp",
+      ],
       shortDesc: "Pristine rainforest and biodiversity hotspot",
       description:
         "Explore one of the last undisturbed rainforests in Western Ghats with rich biodiversity.",
@@ -725,6 +773,7 @@ Poovar's beach is particularly special – pristine, relatively untouched, and p
       type: "wildlife",
       badge: "Eco",
       duration: "2-3 days",
+      featured: false,
       packages: [
         {
           id: 1201,
@@ -749,9 +798,7 @@ Poovar's beach is particularly special – pristine, relatively untouched, and p
         },
       ],
       details: {
-        fullDescription: `Silent Valley National Park, located in the Nilgiri Hills of Palakkad district, is one of the last remaining tracts of undisturbed tropical evergreen rainforest in India. Spanning approximately 89 square kilometers, this ecological treasure trove was declared a national park in 1984 following a successful environmental movement that prevented the construction of a hydroelectric project. The park gets its name from the absence of cicadas, which are typically heard in other forests, creating a relatively silent atmosphere.
-The park is a biodiversity hotspot, home to numerous endangered species including the Lion-tailed Macaque, Nilgiri Langur, Malabar Giant Squirrel, and over 100 species of butterflies. The dense forest is crisscrossed by the Kunthi River, which originates from the park and remains unpolluted throughout its course. The vegetation includes multi-storied forests with towering trees, thick lianas, and rich undergrowth that support this incredible diversity of life.
-Visiting Silent Valley is a truly immersive ecological experience. The park offers guided treks that take visitors through various forest types, from tropical evergreen to montane grasslands. The Sairandhri viewpoint provides a panoramic view of the entire valley, while the trek to the Kunthi River offers opportunities to spot wildlife and enjoy the pristine natural surroundings. Silent Valley represents Kerala's commitment to conservation and offers a rare glimpse into what the Western Ghats looked like before human intervention.`,
+        fullDescription: `Silent Valley, a UNESCO-protected rainforest in Palakkad, preserves untouched wilderness. Ideal for trekkers and eco-travelers seeking raw natural beauty.`,
         climate: "Cool and humid (15°C to 25°C)",
         idealFor: ["Eco-Tourists", "Wildlife Enthusiasts", "Trekking Groups"],
         mustVisit: [

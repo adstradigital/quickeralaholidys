@@ -26,47 +26,78 @@
   padding: 1.2rem 0;
 }
 
-/* Logo Styles */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+/* ============================= */
+/* Logo Section (Updated - Larger Size) */
+/* ============================= */
 
-.logo:hover {
-  transform: translateY(-1px);
-}
-
-.logoIcon {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 0.8rem;
+.nav-logoo {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
-  background: linear-gradient(135deg, #5c55e1, #9ed454);
-  box-shadow: 0 4px 15px rgba(92, 85, 225, 0.3);
+  text-decoration: none;
+  gap: 0.6rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.logoText {
-  display: flex;
-  flex-direction: column;
+.nav-logoo:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
 }
 
-.logoMain {
-  font-size: 1.4rem;
+/* Make logo visually large without expanding header height */
+.logoo-image {
+  height: 80px; /* Actual space used in layout */
+  width: auto;
+  object-fit: contain;
+  transform: scale(2.5); /* Visually makes it look ~200px tall */
+  transform-origin: left center; /* Keeps alignment nice */
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logoo-image:hover {
+  transform: scale(2.4);
+  filter: brightness(1.1);
+}
+
+
+/* Fallback Text Logo (Visible if image fails) */
+.logo-fallback {
+  font-size: 1.8rem; /* ⬆ Increased from 1.4rem */
   font-weight: 800;
-  background: linear-gradient(135deg, #1f2937, #5c55e1);
+  background: linear-gradient(135deg, #5c55e1, #9ed454);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.3s ease-in;
 }
+
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .logo-image {
+    height: 50px; /* ⬆ slightly larger for mobile too */
+  }
+  .logo-fallback {
+    font-size: 1.5rem;
+  }
+}
+
 
 /* Desktop Navigation */
 .desktopNav {
