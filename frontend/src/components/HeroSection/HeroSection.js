@@ -608,7 +608,7 @@ export default function Hero() {
             <div className="carousel-track">
               {testimonials.map((testimonial, index) => {
                 const isActive = index === currentTestimonial;
-                const angle = index * 222 - 90;
+                const angle = index * 222 - 150;
 
                 return (
                   <div

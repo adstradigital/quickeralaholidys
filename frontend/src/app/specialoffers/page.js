@@ -5,6 +5,7 @@ export default function SpecialOffersPage() {
   return (
     <Suspense fallback={<div>Loading special offers...</div>}>
       <SpecialOffersClient />
+      
     </Suspense>
   );
 }

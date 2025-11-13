@@ -1,9 +1,9 @@
 // components/TripOffers.jsx
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import './SpecialOffer.css';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import "./SpecialOffer.css";
 
 export default function TripOffers() {
   const [isClient, setIsClient] = useState(false);
@@ -76,13 +76,13 @@ export default function TripOffers() {
     { number: "50K+", label: "Happy Travelers" },
     { number: "25+", label: "Kerala Destinations" },
     { number: "4.9", label: "Average Rating" },
-    { number: "24/7", label: "Kerala Support" }
+    { number: "24/7", label: "Kerala Support" },
   ];
 
   const floatingElements = [
     { size: 80, top: "20%", left: "10%", delay: 0 },
     { size: 120, top: "70%", left: "80%", delay: -10 },
-    { size: 100, top: "40%", left: "85%", delay: -20 }
+    { size: 100, top: "40%", left: "85%", delay: -20 },
   ];
 
   useEffect(() => {
@@ -96,7 +96,10 @@ export default function TripOffers() {
           <div className="trip-offers__header">
             <div className="trip-offers__badge">
               <div className="trip-offers__badge-dot" />
-              <span className="trip-offers__badge-text"> Kerala Travel Packages</span>
+              <span className="trip-offers__badge-text">
+                {" "}
+                Kerala Travel Packages
+              </span>
             </div>
             <h2 className="trip-offers__title">Kerala Specials</h2>
           </div>
@@ -121,7 +124,7 @@ export default function TripOffers() {
               height: element.size,
               top: element.top,
               left: element.left,
-              animationDelay: `${element.delay}s`
+              animationDelay: `${element.delay}s`,
             }}
           />
         ))}
@@ -134,18 +137,19 @@ export default function TripOffers() {
             <div className="trip-offers__badge-dot" />
             <span className="trip-offers__badge-text">Kerala Specials</span>
           </div>
-          
+
           <h2 className="trip-offers__title">Exclusive offer for you</h2>
-          
+
           <p className="trip-offers__subtitle">
-            Discover the magic of God's Own Country with our carefully curated Kerala packages. 
-            From serene backwaters to luxurious Ayurvedic retreats and romantic honeymoons.
+            Discover the magic of God's Own Country with our carefully curated
+            Kerala packages. From serene backwaters to luxurious Ayurvedic
+            retreats and romantic honeymoons.
           </p>
         </div>
 
         {/* Regular Trips with Images */}
         <div className="trip-offers__cards">
-          {regularTrips.map(trip => (
+          {regularTrips.map((trip) => (
             <div key={trip.id} className="trip-offers__card">
               {/* Card Image */}
               <div className="trip-offers__card-image-container">
