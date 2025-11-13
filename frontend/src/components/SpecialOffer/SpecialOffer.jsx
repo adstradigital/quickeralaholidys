@@ -31,6 +31,7 @@ export default function TripOffers() {
       difficulty: "Relaxing",
       rating: 4.9,
       icon: "🛶",
+      image: "/assets/cultural_kerala_quick.png",
       features: ["Houseboat Stay", "Traditional Lunch", "Village Tour", "Sunset Cruise"],
       featured: true,
       type: "backwaters"
@@ -48,6 +49,7 @@ export default function TripOffers() {
       difficulty: "Wellness",
       rating: 4.8,
       icon: "🧘",
+      image: "/assets/ayurvedic_rejuvation_quick.png",
       features: ["Daily Yoga", "Ayurvedic Massages", "Meditation", "Organic Meals"],
       type: "ayurvedic"
     },
@@ -64,10 +66,10 @@ export default function TripOffers() {
       difficulty: "Luxury",
       rating: 4.9,
       icon: "💖",
+      image: "/assets/romantic_honeymoon_quick.png",
       features: ["Private Villa", "Candlelight Dinner", "Couple Spa", "Photo Session"],
       type: "honeymoon"
     }
-
   ];
 
   const stats = [
@@ -141,120 +143,77 @@ export default function TripOffers() {
           </p>
         </div>
 
-        {/* Featured Trip */}
-        {/* {featuredTrip && (
-          <div className="trip-offers__cards">
-            <div className="trip-offers__card trip-offers__card--featured">
-              <div className="trip-offers__featured-content">
+        {/* Regular Trips with Images */}
+        <div className="trip-offers__cards">
+          {regularTrips.map(trip => (
+            <div key={trip.id} className="trip-offers__card">
+              {/* Card Image */}
+              <div className="trip-offers__card-image-container">
+                <img 
+                  src={trip.image} 
+                  alt={trip.title}
+                  className="trip-offers__card-image"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                {/* Discount Badge */}
                 <div className="trip-offers__card-badge">
-                  {featuredTrip.discount}
+                  {trip.discount}
                 </div>
-                
+              </div>
+              
+              <div className="trip-offers__card-content">
                 <div className="trip-offers__card-header">
                   <div className="trip-offers__card-icon">
-                    {featuredTrip.icon}
+                    {trip.icon}
                   </div>
                   <div>
-                    <h3 className="trip-offers__card-title">{featuredTrip.title}</h3>
-                    <div className="trip-offers__card-location">{featuredTrip.location}</div>
+                    <h3 className="trip-offers__card-title">{trip.title}</h3>
+                    <div className="trip-offers__card-location">{trip.location}</div>
                   </div>
                 </div>
 
-                <p className="trip-offers__card-description">{featuredTrip.description}</p>
+                <p className="trip-offers__card-description">{trip.description}</p>
 
                 <div className="trip-offers__card-features">
-                  {featuredTrip.features.map((feature, index) => (
-                    <div key={index} className="trip-offers__feature">
-                      <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      {feature}
-                    </div>
-                  ))}
+                  <div className="trip-offers__feature">
+                    <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {trip.duration}
+                  </div>
+                  <div className="trip-offers__feature">
+                    <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    {trip.groupSize}
+                  </div>
+                  <div className="trip-offers__feature">
+                    <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    {trip.difficulty}
+                  </div>
                 </div>
 
                 <div className="trip-offers__card-footer">
                   <div className="trip-offers__price">
-                    <span className="trip-offers__price-old">₹{featuredTrip.originalPrice.toLocaleString()}</span>
-                    <span className="trip-offers__price-new">₹{featuredTrip.price.toLocaleString()}</span>
+                    <span className="trip-offers__price-old">₹{trip.originalPrice.toLocaleString()}</span>
+                    <span className="trip-offers__price-new">₹{trip.price.toLocaleString()}</span>
                   </div>
                   <button 
                     className="trip-offers__card-cta"
-                    onClick={() => handleBookClick(featuredTrip.id)}
+                    onClick={() => handleExploreClick(trip.id)}
                   >
-                    Book Now
+                    View Offers
                   </button>
                 </div>
-              </div>
-
-              <div className="trip-offers__featured-image">
-                <div className="trip-offers__featured-visual">
-                  {featuredTrip.icon}
-                </div>
-              </div>
-            </div>
-          </div>
-        )} */}
-
-        {/* Regular Trips */}
-        <div className="trip-offers__cards">
-          {regularTrips.map(trip => (
-            <div key={trip.id} className="trip-offers__card">
-              <div className="trip-offers__card-badge">
-                {trip.discount}
-              </div>
-              
-              <div className="trip-offers__card-header">
-                <div className="trip-offers__card-icon">
-                  {trip.icon}
-                </div>
-                <div>
-                  <h3 className="trip-offers__card-title">{trip.title}</h3>
-                  <div className="trip-offers__card-location">{trip.location}</div>
-                </div>
-              </div>
-
-              <p className="trip-offers__card-description">{trip.description}</p>
-
-              <div className="trip-offers__card-features">
-                <div className="trip-offers__feature">
-                  <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {trip.duration}
-                </div>
-                <div className="trip-offers__feature">
-                  <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                  {trip.groupSize}
-                </div>
-                <div className="trip-offers__feature">
-                  <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  {trip.difficulty}
-                </div>
-              </div>
-
-              <div className="trip-offers__card-footer">
-                <div className="trip-offers__price">
-                  <span className="trip-offers__price-old">₹{trip.originalPrice.toLocaleString()}</span>
-                  <span className="trip-offers__price-new">₹{trip.price.toLocaleString()}</span>
-                </div>
-                <button 
-                  className="trip-offers__card-cta"
-                  onClick={() => handleExploreClick(trip.id)}
-                >
-                  View Offers
-                </button>
               </div>
             </div>
           ))}
         </div>
-
-        {/* View All Offers Button */}
-
 
         {/* Stats Section */}
         <div className="trip-offers__stats">

@@ -24,6 +24,7 @@ export default function Hero() {
   const [showOfferPopup, setShowOfferPopup] = useState(false);
   const [hasSeenOffer, setHasSeenOffer] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [videoError, setVideoError] = useState(false);
   const heroRef = useRef(null);
   const { user, logout } = useAuth();
 
@@ -48,39 +49,48 @@ export default function Hero() {
   const testimonials = [
     {
       id: 1,
-      quote: "Best Kerala experience ever! The backwaters were magical.",
-      author: "Sarah, UK Traveler",
-      rating: "4.9/5",
-      videoUrl: "/assets/videos/testimonial1.mp4",
-    },
-    {
-      id: 2,
-      quote:
-        "Unforgettable journey through God's Own Country. Highly recommended!",
-      author: "Michael, USA",
-      rating: "5/5",
-      videoUrl: "/assets/videos/testimonial2.mp4",
-    },
-    {
-      id: 3,
-      quote: "The houseboat stay in Alleppey was the highlight of our trip!",
-      author: "Priya, India",
-      rating: "4.8/5",
-      videoUrl: "/assets/videos/testimonial3.mp4",
-    },
-    {
-      id: 4,
-      quote: "Kerala's nature and hospitality left us speechless. Will return!",
-      author: "Carlos, Spain",
-      rating: "4.9/5",
-      videoUrl: "/assets/videos/testimonial4.mp4",
-    },
-    {
-      id: 5,
       quote: "Perfect blend of adventure and relaxation. Amazing tour guides!",
       author: "Lisa, Australia",
       rating: "5/5",
       videoUrl: "/assets/videos/testimonial5.mp4",
+      thumbnail: "/assets/testimonials/test.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1464822759844-4c0a1e853086?w=400&h=300&fit=crop",
+    },
+    {
+      id: 2,
+      quote: "Best Kerala experience ever! The backwaters were magical.",
+      author: "Sarah, UK Traveler",
+      rating: "4.9/5",
+      videoUrl: "/assets/videos/testimonial1.mp4",
+      thumbnail: "/assets/testmonials/test1.png",
+      fallbackImage: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?w=400&h=300&fit=crop",
+    },
+    {
+      id: 3,
+      quote: "Unforgettable journey through God's Own Country. Highly recommended!",
+      author: "Michael, USA",
+      rating: "5/5",
+      videoUrl: "/assets/videos/testimonial2.mp4",
+      thumbnail: "/assets/testmonials/test2.png",
+      fallbackImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop",
+    },
+    {
+      id: 4,
+      quote: "The houseboat stay in Alleppey was the highlight of our trip!",
+      author: "Priya, India",
+      rating: "4.8/5",
+      videoUrl: "/assets/videos/testimonial4.mp4",
+      thumbnail: "/assets/testmonials/test3.png",
+      fallbackImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop",
+    },
+    {
+      id: 5,
+      quote: "Kerala's nature and hospitality left us speechless. Will return!",
+      author: "Carlos, Spain",
+      rating: "4.9/5",
+      videoUrl: "/assets/videos/testimonial3.mp4",
+      thumbnail: "/assets/testmonials/test4.png",
+      fallbackImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
     },
   ];
 
@@ -88,25 +98,25 @@ export default function Hero() {
     {
       name: "Instagram",
       icon: <FaInstagram />,
-      color: "#E4405F", // Instagram brand color
+      color: "#E4405F",
       url: "https://www.instagram.com/quickeralaholidays/",
     },
     {
       name: "Facebook",
       icon: <FaFacebook />,
-      color: "#1877F2", // Facebook brand color
+      color: "#1877F2",
       url: "https://www.facebook.com/QuickeralaHolidays/",
     },
     {
       name: "YouTube",
       icon: <FaYoutube />,
-      color: "#FF0000", // YouTube brand color
+      color: "#FF0000",
       url: "https://youtube.com",
     },
     {
       name: "Twitter",
       icon: <FaXTwitter />,
-      color: "#000101ff", // Twitter brand color
+      color: "#000101ff",
       url: "https://x.com/qkeralaholidays",
     },
   ];
@@ -123,18 +133,17 @@ export default function Hero() {
 
     const textInterval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % 5);
-    }, 20000); // 20 seconds = 20000 milliseconds
+    }, 20000);
 
     const testimonialInterval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 4000);
 
     const offerTimer = setTimeout(() => {
-      const hasSeen = localStorage.getItem("hasSeenOfferPopup");
-      if (!hasSeen && !user) {
+      if (!user) {
         setShowOfferPopup(true);
       }
-    }, 60000);
+    }, 20000);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -176,14 +185,41 @@ export default function Hero() {
     window.location.href = "/register";
   };
 
+  const handleVideoClick = async (testimonial) => {
+    try {
+      // Check if video exists before trying to play
+      const response = await fetch(testimonial.videoUrl, { method: 'HEAD' });
+      if (response.ok) {
+        setSelectedVideo(testimonial.videoUrl);
+        setVideoError(false);
+      } else {
+        setVideoError(true);
+        // Show fallback image in modal instead
+        setSelectedVideo(null);
+        // You can show a message or fallback content here
+        console.log('Video not found, showing fallback');
+      }
+    } catch (error) {
+      setVideoError(true);
+      console.log('Video error:', error);
+    }
+  };
+
+  const handleVideoError = () => {
+    setVideoError(true);
+    // You can add a user notification here if needed
+  };
+
+  const closeVideoModal = () => {
+    setSelectedVideo(null);
+    setVideoError(false);
+  };
+
   useEffect(() => {
     const handleResize = () => {
-      // Close mobile menu when resizing to desktop
       if (window.innerWidth > 768 && isMenuOpen) {
         setIsMenuOpen(false);
       }
-
-      // Close profile dropdown on mobile when resizing
       if (window.innerWidth <= 768 && isProfileOpen) {
         setIsProfileOpen(false);
       }
@@ -250,14 +286,12 @@ export default function Hero() {
                   Maybe Later
                 </button>
               </div>
-
-              <div className="offer-timer">⏰ Limited time offer</div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Header Navigation - Updated with white background */}
+      {/* Header Navigation */}
       <header
         className={`hero-header ${isScrolled ? "scrolled" : ""} white-nav`}
       >
@@ -463,8 +497,6 @@ export default function Hero() {
               <div className="badge-pulse"></div>
             </div>
 
-            {/* Updated Main Heading */}
-            {/* Updated Main Heading */}
             <div className="heading-container">
               <h1 className="main-heading">
                 <span className="rotating-main-title">
@@ -571,6 +603,7 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Updated Testimonial Carousel with Video Handling */}
           <div className="testimonial-carousel">
             <div className="carousel-track">
               {testimonials.map((testimonial, index) => {
@@ -588,18 +621,31 @@ export default function Hero() {
                   >
                     <div className="testimonial-content">
                       <div className="video-placeholder">
-                        <div
-                          className="play-button"
-                          onClick={() => setSelectedVideo(testimonial.videoUrl)}
-                        >
-                          <div className="play-icon">▶</div>
+                        {/* Thumbnail Image */}
+                        <div className="testimonial-thumbnail">
+                          <img 
+                            src={testimonial.thumbnail} 
+                            alt={testimonial.author}
+                            className="thumbnail-image"
+                            onError={(e) => {
+                              // If thumbnail fails, use fallback image
+                              e.target.src = testimonial.fallbackImage;
+                            }}
+                          />
+                          
+                          {/* Play Button Overlay */}
+                          <div
+                            className="play-button"
+                            onClick={() => handleVideoClick(testimonial)}
+                          >
+                            <div className="play-icon">▶</div>
+                          </div>
+
                         </div>
+
+                        {/* Testimonial Info */}
                         <div className="video-overlay">
                           <div className="quote">"{testimonial.quote}"</div>
-                          <div className="author">- {testimonial.author}</div>
-                        </div>
-                        <div className="rating-badge">
-                          <span className="rating">{testimonial.rating}</span>
                         </div>
                       </div>
                     </div>
@@ -667,28 +713,47 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Video Modal with Error Handling */}
       {selectedVideo && (
         <div
           className="video-modal-overlay"
-          onClick={() => setSelectedVideo(null)}
+          onClick={closeVideoModal}
         >
           <div
             className="video-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <video
-              src={selectedVideo}
-              controls
-              autoPlay
-              className="video-player"
-              onEnded={() => setSelectedVideo(null)}
-            />
-            <button
-              className="close-btn"
-              onClick={() => setSelectedVideo(null)}
-            >
-              ✕
-            </button>
+            {videoError ? (
+              <div className="video-error-message">
+                <div className="error-icon">📹</div>
+                <h3>Video Not Available</h3>
+                <p>We're working on adding testimonial videos soon!</p>
+                <p className="error-note">In the meantime, explore our amazing Kerala packages.</p>
+                <button 
+                  className="error-close-btn"
+                  onClick={closeVideoModal}
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <>
+                <video
+                  src={selectedVideo}
+                  controls
+                  autoPlay
+                  className="video-player"
+                  onEnded={closeVideoModal}
+                  onError={handleVideoError}
+                />
+                <button
+                  className="close-btn"
+                  onClick={closeVideoModal}
+                >
+                  ✕
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
