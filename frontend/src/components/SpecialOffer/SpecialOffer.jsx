@@ -1,9 +1,9 @@
 // components/TripOffers.jsx
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import './SpecialOffer.css';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import "./SpecialOffer.css";
 
 export default function TripOffers() {
   const [isClient, setIsClient] = useState(false);
@@ -20,67 +20,60 @@ export default function TripOffers() {
   const trips = [
     {
       id: 1,
-      title: "Kerala Backwaters Escape",
-      location: "Alleppey, Kerala",
-      description: "Experience the serene backwaters of Kerala with traditional houseboat stay, village tours, and authentic local cuisine.",
-      price: 12499,
-      originalPrice: 15999,
-      discount: "22% OFF",
-      duration: "3 Days / 2 Nights",
-      groupSize: "2-4 People",
-      difficulty: "Relaxing",
-      rating: 4.9,
-      icon: "🛶",
-      features: ["Houseboat Stay", "Traditional Lunch", "Village Tour", "Sunset Cruise"],
-      featured: true,
-      type: "backwaters"
+      title: "Special Kerala",
+      discount: "15% OFF",
+      description:
+        "Perfect escape covering Munnar tea gardens, Thekkady wildlife, and Alleppey backwaters with deluxe houseboat stay",
+      validUntil: "2024-08-15",
+      tag: "Weekend Special",
+      color: "#F59E0B",
+      lightColor: "#FFFBEB",
+      relatedTripId: 1,
+      packageDetails: "4 Nights 5 Days | Munnar 2N, Thekkady 1N, Alleppey 1N",
+      startingPrice: "₹36,200",
     },
     {
       id: 2,
-      title: "Ayurvedic Wellness Retreat",
-      location: "Kochi, Kerala",
-      description: "Rejuvenate your mind and body with authentic Ayurvedic treatments, yoga sessions, and organic meals in peaceful surroundings.",
-      price: 18999,
-      originalPrice: 24999,
-      discount: "24% OFF",
-      duration: "5 Days / 4 Nights",
-      groupSize: "1-2 People",
-      difficulty: "Wellness",
-      rating: 4.8,
-      icon: "🧘",
-      features: ["Daily Yoga", "Ayurvedic Massages", "Meditation", "Organic Meals"],
-      type: "ayurvedic"
+      title: "Honeymoon Special",
+      discount: "20% OFF",
+      description:
+        "Experience the healing power of Ayurveda during Kerala's monsoon season with Munnar hills and backwater cruise",
+      validUntil: "2024-09-30",
+      tag: "Seasonal",
+      color: "#06B6D4",
+      lightColor: "#ECFEFF",
+      relatedTripId: 2,
+      packageDetails: "4 Nights 5 Days | Munnar 2N, Thekkady 1N, Alleppey 1N",
+      startingPrice: "₹36,200",
     },
     {
       id: 3,
-      title: "Romantic Honeymoon Package",
-      location: "Munnar, Kerala",
-      description: "Perfect romantic getaway with private villas, candlelight dinners, couple spa treatments, and misty mountain views.",
-      price: 22999,
-      originalPrice: 28999,
-      discount: "21% OFF",
-      duration: "4 Days / 3 Nights",
-      groupSize: "2 People",
-      difficulty: "Luxury",
-      rating: 4.9,
-      icon: "💖",
-      features: ["Private Villa", "Candlelight Dinner", "Couple Spa", "Photo Session"],
-      type: "honeymoon"
-    }
-
+      title: "Grand Kerala Group Tour",
+      discount: "25% OFF",
+      description:
+        "Complete Kerala experience for groups of 6+: Cochin, Munnar, Thekkady, Alleppey, Kovalam & Kanyakumari day trip",
+      validUntil: "2024-12-31",
+      tag: "Group Deal",
+      color: "#8B5CF6",
+      lightColor: "#F5F3FF",
+      relatedTripId: 4,
+      packageDetails:
+        "7 Nights 8 Days | Cochin 1N, Munnar 2N, Thekkady 1N, Alleppey 1N, Kovalam 2N",
+      startingPrice: "₹58,500",
+    },
   ];
 
   const stats = [
     { number: "50K+", label: "Happy Travelers" },
     { number: "25+", label: "Kerala Destinations" },
     { number: "4.9", label: "Average Rating" },
-    { number: "24/7", label: "Kerala Support" }
+    { number: "24/7", label: "Kerala Support" },
   ];
 
   const floatingElements = [
     { size: 80, top: "20%", left: "10%", delay: 0 },
     { size: 120, top: "70%", left: "80%", delay: -10 },
-    { size: 100, top: "40%", left: "85%", delay: -20 }
+    { size: 100, top: "40%", left: "85%", delay: -20 },
   ];
 
   useEffect(() => {
@@ -94,7 +87,10 @@ export default function TripOffers() {
           <div className="trip-offers__header">
             <div className="trip-offers__badge">
               <div className="trip-offers__badge-dot" />
-              <span className="trip-offers__badge-text"> Kerala Travel Packages</span>
+              <span className="trip-offers__badge-text">
+                {" "}
+                Kerala Travel Packages
+              </span>
             </div>
             <h2 className="trip-offers__title">Kerala Specials</h2>
           </div>
@@ -119,7 +115,7 @@ export default function TripOffers() {
               height: element.size,
               top: element.top,
               left: element.left,
-              animationDelay: `${element.delay}s`
+              animationDelay: `${element.delay}s`,
             }}
           />
         ))}
@@ -132,12 +128,13 @@ export default function TripOffers() {
             <div className="trip-offers__badge-dot" />
             <span className="trip-offers__badge-text">Kerala Specials</span>
           </div>
-          
+
           <h2 className="trip-offers__title">Exclusive offer for you</h2>
-          
+
           <p className="trip-offers__subtitle">
-            Discover the magic of God's Own Country with our carefully curated Kerala packages. 
-            From serene backwaters to luxurious Ayurvedic retreats and romantic honeymoons.
+            Discover the magic of God's Own Country with our carefully curated
+            Kerala packages. From serene backwaters to luxurious Ayurvedic
+            retreats and romantic honeymoons.
           </p>
         </div>
 
@@ -198,51 +195,68 @@ export default function TripOffers() {
 
         {/* Regular Trips */}
         <div className="trip-offers__cards">
-          {regularTrips.map(trip => (
+          {regularTrips.map((trip) => (
             <div key={trip.id} className="trip-offers__card">
-              <div className="trip-offers__card-badge">
-                {trip.discount}
-              </div>
-              
+              <div className="trip-offers__card-badge">{trip.discount}</div>
+
               <div className="trip-offers__card-header">
                 <div className="trip-offers__card-icon">
-                  {trip.icon}
+                  {/* optional icon here */}
                 </div>
                 <div>
                   <h3 className="trip-offers__card-title">{trip.title}</h3>
-                  <div className="trip-offers__card-location">{trip.location}</div>
+                  <div className="trip-offers__card-location">{trip.tag}</div>
                 </div>
               </div>
 
-              <p className="trip-offers__card-description">{trip.description}</p>
+              <p className="trip-offers__card-description">
+                {trip.description}
+              </p>
 
               <div className="trip-offers__card-features">
                 <div className="trip-offers__feature">
-                  <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="trip-offers__feature-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  {trip.duration}
+                  {trip.packageDetails}
                 </div>
+
                 <div className="trip-offers__feature">
-                  <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <svg
+                    className="trip-offers__feature-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 4h16v16H4z"
+                    />
                   </svg>
-                  {trip.groupSize}
-                </div>
-                <div className="trip-offers__feature">
-                  <svg className="trip-offers__feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  {trip.difficulty}
+                  Valid Until: {trip.validUntil}
                 </div>
               </div>
 
               <div className="trip-offers__card-footer">
                 <div className="trip-offers__price">
-                  <span className="trip-offers__price-old">₹{trip.originalPrice.toLocaleString()}</span>
-                  <span className="trip-offers__price-new">₹{trip.price.toLocaleString()}</span>
+                  <span className="trip-offers__price-new">
+                    {trip.startingPrice}
+                  </span>
                 </div>
-                <button 
+
+                <button
                   className="trip-offers__card-cta"
                   onClick={() => handleExploreClick(trip.id)}
                 >
@@ -254,7 +268,6 @@ export default function TripOffers() {
         </div>
 
         {/* View All Offers Button */}
-
 
         {/* Stats Section */}
         <div className="trip-offers__stats">
