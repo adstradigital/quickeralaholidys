@@ -45,7 +45,7 @@ export default function VehicleSelection() {
     },
     {
       id: 3,
-      name: "Maruti Suzuki Ertiga",
+      name: "Force Tempo traveler",
       type: "muv",
       image: "/assets/vehicle/tembo.png",
       badge: "Family MUV",
@@ -68,6 +68,18 @@ export default function VehicleSelection() {
       price: "₹1,999/day"
     },
     {
+      id: 6,
+      name: "Mini Bus",
+      type: "bus",
+      image: "/assets/vehicle/bus.png",
+      badge: "Group Travel",
+      description: "Perfect for large groups, corporate travel, and family gatherings.",
+      features: ["15+ Seater", "AC", "Spacious", "Group Travel"],
+      capacity: "15+ People",
+      range: "700 km",
+      price: "₹8,999/day"
+    },
+    {
       id: 5,
       name: "Maruti Suzuki Ignis",
       type: "compact",
@@ -79,18 +91,6 @@ export default function VehicleSelection() {
       range: "400 km",
       price: "₹1,799/day"
     },
-    {
-      id: 6,
-      name: "Mini Bus",
-      type: "bus",
-      image: "/assets/vehicle/bus.png",
-      badge: "Group Travel",
-      description: "Perfect for large groups, corporate travel, and family gatherings.",
-      features: ["15+ Seater", "AC", "Spacious", "Group Travel"],
-      capacity: "15+ People",
-      range: "700 km",
-      price: "₹8,999/day"
-    }
   ];
 
   useEffect(() => {

@@ -370,6 +370,7 @@
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  margin-top: 80px;
 }
 
 .gallery-header {
@@ -841,6 +842,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #f1f5f9;
+  margin-top: 80px;
 }
 
 .widget-title {

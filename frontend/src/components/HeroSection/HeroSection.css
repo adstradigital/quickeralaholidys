@@ -960,8 +960,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 45px;
-  height: 45px;
+  width: 25px;
+  height: 25px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   display: flex;
@@ -1864,4 +1864,434 @@
   .promo-code {
     font-size: 1.1rem;
   }
+}
+
+/* ============================================
+   TESTIMONIAL THUMBNAIL STYLES
+   ============================================ */
+
+.testimonial-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(92, 85, 225, 0.3), rgba(158, 212, 84, 0.3));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.fallback-avatar {
+  filter: brightness(0) invert(1);
+}
+
+.testimonial-thumbnail:hover .thumbnail-image {
+  transform: scale(1.1);
+}
+
+.testimonial-thumbnail:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Play Button */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.play-icon {
+  color: white;
+  font-size: 20px;
+  margin-left: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Rating Badge */
+.rating-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(45deg, #ffd700, #ff6b00);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  z-index: 2;
+}
+
+.rating {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Testimonial Avatar */
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 12px auto;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* Author Info */
+.author-info {
+  margin-top: 8px;
+}
+
+.author {
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.author-location {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 20px 15px 15px 15px;
+  color: white;
+  text-align: center;
+  z-index: 25;
+}
+
+.quote {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Active Testimonial Enhancement */
+.testimonial-item.active .testimonial-thumbnail {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  transform: scale(1.05);
+  border-color: rgba(158, 212, 84, 0.6);
+}
+
+.testimonial-item.active .rating-badge {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+}
+
+/* ============================================
+   FIX FOR EXISTING TESTIMONIAL STRUCTURE
+   ============================================ */
+
+/* Update the existing video-placeholder to work with thumbnails */
+.video-placeholder {
+  position: relative;
+  width: 160px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+/* Ensure the new thumbnail structure overrides the old one */
+.video-placeholder .testimonial-thumbnail {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+}
+
+/* Fix for testimonial content positioning */
+.testimonial-content {
+  position: relative;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 110px;
+}
+
+/* ============================================
+   RESPONSIVE THUMBNAIL STYLES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .testimonial-thumbnail {
+    height: 150px;
+  }
+  
+  .testimonial-content {
+    width: 140px;
+    height: 100px;
+  }
+  
+  .video-placeholder {
+    width: 140px;
+    height: 100px;
+  }
+  
+  .play-button {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .play-icon {
+    font-size: 16px;
+  }
+  
+  .rating-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+  
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .quote {
+    font-size: 12px;
+  }
+  
+  .author {
+    font-size: 13px;
+  }
+  
+  .author-location {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonial-thumbnail {
+    height: 130px;
+  }
+  
+  .testimonial-content {
+    width: 130px;
+    height: 90px;
+  }
+  
+  .video-placeholder {
+    width: 130px;
+    height: 90px;
+  }
+  
+  .play-button {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .testimonial-avatar {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 8px;
+  }
+  
+  .video-overlay {
+    padding: 15px 10px 10px 10px;
+  }
+  
+  .quote {
+    font-size: 11px;
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-thumbnail {
+    height: 120px;
+  }
+  
+  .testimonial-content {
+    width: 120px;
+    height: 80px;
+  }
+  
+  .video-placeholder {
+    width: 120px;
+    height: 80px;
+  }
+  
+  .play-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .play-icon {
+    font-size: 14px;
+  }
+  
+  .testimonial-avatar {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 6px;
+  }
+  
+  .video-overlay {
+    padding: 12px 8px 8px 8px;
+  }
+  
+  .quote {
+    font-size: 10px;
+    -webkit-line-clamp: 2;
+  }
+  
+  .author {
+    font-size: 11px;
+  }
+  
+  .author-location {
+    font-size: 9px;
+  }
+}
+
+
+/* Video Error Message Styles */
+.video-error-message {
+  padding: 40px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #1a1f3a, #2d1b69);
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.video-error-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #9ed454;
+}
+
+.video-error-message p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.error-note {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+.error-close-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #5c55e1, #9ed454);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(92, 85, 225, 0.4);
+}
+
+/* Video Player Styling */
+.video-player {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 70vh;
+  border-radius: 8px;
+}
+
+/* Fix for video modal content */
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure proper video display */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
 }

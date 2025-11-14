@@ -41,14 +41,14 @@
 }
 
 /* Header */
-.package-header {
+/* .package-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid #e2e8f0;
-}
+} */
 
 .header-content h1 {
   font-size: 3rem;
@@ -89,7 +89,7 @@
 /* Layout */
 .package-layout {
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 1fr; /* full width since sidebar removed */
   gap: 3rem;
   align-items: start;
 }
@@ -204,9 +204,10 @@
   transform: translateY(-1px);
 }
 
+/* Updated packages grid to 3 columns */
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -215,9 +216,10 @@
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.82);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   border: 1px solid #f1f5f9;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .package-card:hover {
@@ -274,6 +276,7 @@
   margin-bottom: 1rem;
   padding: 0;
   border: none;
+  margin-top: 60px;
 }
 
 .package-header h3 {
@@ -411,175 +414,7 @@
   transform: translateY(-2px);
 }
 
-/* Sidebar */
-.package-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: sticky;
-  top: 2rem;
-}
-
-/* Days Filter Widget */
-.days-filter-widget {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f1f5f9;
-}
-
-.widget-header h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 0.5rem 0;
-}
-
-.widget-header p {
-  color: #64748b;
-  margin: 0 0 1.5rem 0;
-  font-size: 0.9rem;
-}
-
-.days-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.days-option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  border: 2px solid #e2e8f0;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  font-family: inherit;
-}
-
-.days-option:hover {
-  border-color: #3b82f6;
-  transform: translateX(5px);
-}
-
-.days-option.selected {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: white;
-}
-
-.days-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.days-count {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.nights-count {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-.package-count {
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
-
-.days-option.selected .package-count {
-  opacity: 0.9;
-}
-
-.selected-filter {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e2e8f0;
-}
-
-.selected-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f0f7ff;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #3b82f6;
-}
-
-.remove-filter {
-  background: none;
-  border: none;
-  color: #64748b;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.remove-filter:hover {
-  color: #ef4444;
-  transform: scale(1.1);
-}
-
-/* Contact Widget */
-.contact-widget {
-  background: linear-gradient(135deg, #37924a, #1dd881);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-  color: white;
-}
-
-.contact-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.contact-widget h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-}
-
-.contact-widget p {
-  opacity: 0.9;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.contact-expert-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: white;
-  color: #3b82f6;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  font-family: inherit;
-}
-
-.contact-expert-btn:hover {
-  background: #f8fafc;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-}
-
+/* Commented out sidebar and days filter styles as removed */
 /* Responsive Design */
 @media (max-width: 1024px) {
   .package-layout {
@@ -588,7 +423,7 @@
   }
   
   .package-sidebar {
-    position: static;
+    display: none;
   }
 }
 
@@ -597,12 +432,7 @@
     padding: 0 1rem;
   }
   
-  .package-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  
+  /* package-header adjustments if needed */
   .header-content h1 {
     font-size: 2.2rem;
   }
@@ -642,8 +472,7 @@
   }
   
   .category-filters,
-  .packages-grid-section,
-  .days-filter-widget {
+  .packages-grid-section {
     padding: 1.5rem;
   }
 }

@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import BookingPage from "@/components/Booking/Booking";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+import FloatingPhone from "@/components/Mobilenumber/MobileNum";
 
 // Loading component for Suspense fallback
 function BookingLoading() {
@@ -22,6 +23,7 @@ export default function BookingPages() {
       <Suspense fallback={<BookingLoading />}>
         <BookingPage />
       </Suspense>
+      <FloatingPhone/>
       <Footer />
     </>
   );

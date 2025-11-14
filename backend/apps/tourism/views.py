@@ -153,8 +153,9 @@ def list_services(request):
 # -------------------------
 # Enquiry APIs
 # -------------------------
+# views.py - Update your API view
 @api_view(['POST'])
-@permission_classes([AllowAny])  # public form
+@permission_classes([AllowAny])
 def submit_trip_enquiry(request):
     try:
         data = request.data
@@ -162,17 +163,30 @@ def submit_trip_enquiry(request):
             'name': data.get('name'),
             'email': data.get('email'),
             'phone': data.get('phone'),
-            'message': data.get('message'),
-            'service': data.get('service'),
-            'product': data.get('tripType'),  # map tripType to product
+            'message': data.get('message', 'I want to know more about Kerala packages'),
+            'destination': data.get('destination'),  # Add destination field
+            'service': 'Kerala Tour Package',  # Default service
+            'product': 'Custom Kerala Package',  # Default product
             'status': 'Pending'
         })
         if serializer.is_valid():
-            serializer.save()
-            return Response({'status': 'success', 'data': serializer.data})
-        return Response({'status': 'error', 'message': serializer.errors})
+            enquiry = serializer.save()
+            # You can add email notification here if needed
+            return Response({
+                'status': 'success', 
+                'message': 'Thank you for your enquiry! We will get back to you within 30 minutes.',
+                'data': serializer.data
+            })
+        return Response({
+            'status': 'error', 
+            'message': 'Please check your form data and try again.',
+            'errors': serializer.errors
+        })
     except Exception as e:
-        return Response({'status': 'error', 'message': str(e)})
+        return Response({
+            'status': 'error', 
+            'message': 'Something went wrong. Please try again later.'
+        })
 
 
 @api_view(['GET'])

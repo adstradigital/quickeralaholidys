@@ -2,8 +2,16 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const API = axios.create({
-  baseURL: "https://rushikeshtourism.com/rushikesh_api/api/",
+  baseURL: "http://127.0.0.1:8000/api/", // Changed to HTTP
 });
+
+// List of public endpoints that don't require authentication
+const PUBLIC_ENDPOINTS = [
+  'tourism/enquiries/submit/',
+  'auth/login/',
+  'auth/register/',
+  // Add other public endpoints here
+];
 
 // ✅ Request Interceptor → Attach token
 API.interceptors.request.use((config) => {
@@ -18,7 +26,15 @@ API.interceptors.request.use((config) => {
 API.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+    const url = error.config?.url || '';
+    
+    // Check if this is a public endpoint
+    const isPublicEndpoint = PUBLIC_ENDPOINTS.some(endpoint => 
+      url.includes(endpoint)
+    );
+    
+    // Only handle session expiry for non-public endpoints
+    if (!isPublicEndpoint && error.response && (error.response.status === 401 || error.response.status === 403)) {
       localStorage.removeItem("auth_token");
 
       Swal.fire({

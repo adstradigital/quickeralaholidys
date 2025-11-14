@@ -28,7 +28,7 @@ class ServiceImage(models.Model):
         return f"Image for {self.service.title}"
 
 
-class Enquiry(models.Model):    
+class Enquiry(models.Model):
     STATUS_CHOICES = [
         ("Pending", "Pending"),
         ("Approved", "Approved"),
@@ -39,8 +39,9 @@ class Enquiry(models.Model):
     phone = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField()
     message = models.TextField()
-    service = models.CharField(max_length=500, null=True)
-    product = models.CharField(max_length=200, blank=True, null=True)  # New field
+    service = models.CharField(max_length=500, null=True, blank=True)  # Made optional
+    product = models.CharField(max_length=200, blank=True, null=True)
+    destination = models.CharField(max_length=200, blank=True, null=True)  # Add this field
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Pending")
     created_at = models.DateTimeField(auto_now_add=True)
 
